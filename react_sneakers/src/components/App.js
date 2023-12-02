@@ -7,6 +7,16 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [openCart, setOpenCart] = useState(false);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch('https://656afe72dac3630cf7278b17.mockapi.io/items')
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        setItems(res)
+      })
+  }, [])
 
   const onClickCart = (event) => {
     if (event.target.classList.contains('Header_cartOpen__mGfqy')) {
@@ -16,7 +26,6 @@ function App() {
       setOpenCart(false);
     }
   }
-
 
 
   useEffect(() => {
@@ -36,7 +45,7 @@ function App() {
           </div>
         </div>
         <div className="cards d-flex flex-wrap">
-          <Cards data={dataCards} />
+          <Cards data={items} />
         </div>
       </div>
     </div>

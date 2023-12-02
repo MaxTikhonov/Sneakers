@@ -26,15 +26,6 @@
   line-height: 17px;
  }
 
- & button {
-  cursor: pointer;
-  background: #FFFFFF;
-  border: 1px solid #F2F2F2;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
- }
-
  & span {
   opacity: 0.5;
   text-transform: uppercase;
@@ -46,4 +37,8 @@
  justify-content: space-between;
  margin-top: 15px;
  align-items: center;
+}
+
+.btnPlus {
+ cursor: pointer;
 }

@@ -4,14 +4,20 @@ import { useState } from 'react';
 
 const Card = (props) => {
  const [card, setCard] = useState(props.data);
+ const [isAdded, setIsAdded] = useState(false);
+ const [isFavorite, setIsFavorite] = useState(false);
 
- const onClickPlus = () => {
+ const onPlus = () => {
+  setIsAdded(!isAdded);
+ }
+ const onFavorite = () => {
+  setIsFavorite(!isFavorite);
  }
 
  return (
   <div className={styles.card}>
    <div className={styles.favorite}>
-    <img src="/img/heart-unliked.svg" alt="Unliked" />
+    <img src={isFavorite ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"} alt="Unliked" onClick={onFavorite} />
    </div>
    <img width={133} height={112} src={`/img/sneakers/${card.image}`} alt="sneaker" />
    <h5>{card.name}</h5>
@@ -20,9 +26,7 @@ const Card = (props) => {
      <span>Цена:</span>
      <b>{`${card.price} руб.`}</b>
     </div>
-    <button onClick={onClickPlus}>
-     <img width={11} height={11} src="/img/plus.svg" alt="" />
-    </button>
+    <img className={styles.btnPlus} width={32} height={32} src={isAdded ? "/img/plus-checked.svg" : "/img/plus.svg"} alt="" onClick={onPlus} />
    </div>
   </div>
  )
