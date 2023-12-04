@@ -13,13 +13,13 @@ function App() {
     fetch('https://656afe72dac3630cf7278b17.mockapi.io/items')
       .then(res => res.json())
       .then(res => {
-        console.log(res)
         setItems(res)
       })
   }, [])
 
   const onClickCart = (event) => {
     if (event.target.classList.contains('Header_cartOpen__mGfqy')) {
+      console.log(event)
       setOpenCart(true);
     }
     if (event.target.classList.contains('Cart_cartItem__cross__vmWJC')) {
@@ -27,10 +27,6 @@ function App() {
     }
   }
 
-
-  useEffect(() => {
-
-  }, [openCart])
 
   return (
     <div className="wrapper clear">

@@ -6,8 +6,11 @@ const Card = (props) => {
  const [card, setCard] = useState(props.data);
  const [isAdded, setIsAdded] = useState(false);
  const [isFavorite, setIsFavorite] = useState(false);
+ let toCart = new Set();
 
- const onPlus = () => {
+
+ const onPlus = (event) => {
+  console.log(props)
   setIsAdded(!isAdded);
  }
  const onFavorite = () => {
