@@ -1,12 +1,12 @@
 import Card from '../../components/Card/Card';
 import { useState, useEffect } from 'react';
 
-const CardsContainer = (props) => {
+const CardsContainer = ({ data }) => {
  const [cards, setCards] = useState([])
 
  useEffect(() => {
-  setCards(props.data)
- }, [props.data]);
+  setCards(data)
+ }, [data]);
 
  return (
   <>{cards.map((item, index) => {
