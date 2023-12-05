@@ -14,6 +14,8 @@ const Cart = (props) => {
    setOpen(false)
   }
  }, [props.open])
+
+
  return (
   <CSSTransition in={open} classNames='animated' timeout={300} unmountOnExit>
    <div className='overlay'>
@@ -40,7 +42,6 @@ const Cart = (props) => {
     </div>
    </div>
   </CSSTransition>
-
  )
 }
 
