@@ -19,7 +19,7 @@ const Card = ({ data, plus, favorite }) => {
  return (
   <div className={styles.card}>
    <div className={styles.favorite}>
-    <div onClick={favorite}><img data-key={data.id} src={logic.isFavorite ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"} alt="Unliked" onClick={onFavorite} /></div>
+    <div onClick={favorite}><img data-key={data.id} name={logic.isFavorite ? "liked" : "unliked"} src={logic.isFavorite ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"} alt="Unliked" onClick={onFavorite} /></div>
    </div>
    <img width={133} height={112} src={`/img/sneakers/${data.image}`} alt="sneaker" />
    <h5>{data.name}</h5>
@@ -29,7 +29,7 @@ const Card = ({ data, plus, favorite }) => {
      <b>{`${data.price} руб.`}</b>
     </div>
     <div onClick={plus}>
-     <img data-key={data.id} className={styles.btnPlus} width={32} height={32} src={logic.isAdded ? "/img/plus-checked.svg" : "/img/plus.svg"} alt="" onClick={onAdd} />
+     <img data-key={data.id} name={logic.isAdded ? "plus-checked" : "plus"} className={styles.btnPlus} width={32} height={32} src={logic.isAdded ? "/img/plus-checked.svg" : "/img/plus.svg"} alt="" onClick={onAdd} />
     </div>
    </div>
   </div>

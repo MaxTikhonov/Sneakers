@@ -3,9 +3,12 @@ import Header from './Header/Header';
 import Cart from '../containers/Cart/Cart';
 import Cards from '../containers/Cards/Cards';
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { initItems } from '../store/itemsSlice';
 
 
 function App() {
+  const dispatch = useDispatch();
   const [openCart, setOpenCart] = useState(false);
   const [items, setItems] = useState([]);
 
@@ -14,12 +17,13 @@ function App() {
       .then(res => res.json())
       .then(res => {
         setItems(res)
+        dispatch(initItems(res))
       })
   }, [])
 
   const onClickCart = (event) => {
     if (event.target.classList.contains('Header_cartOpen__mGfqy')) {
-      console.log(event)
+      // console.log(event)
       setOpenCart(true);
     }
     if (event.target.classList.contains('Cart_cartItem__cross__vmWJC')) {
