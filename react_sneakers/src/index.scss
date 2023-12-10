@@ -12,6 +12,15 @@ body {
   font-family: "Inter", system-ui;
 }
 
+a {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: 0;
+}
+
 li:hover,
 button:hover {
   cursor: pointer;
@@ -101,21 +110,70 @@ b {
   transition: opacity 300ms;
 }
 
-.cart-item {
-  border: 1px solid #F3F3F3;
-  border-radius: 20px;
-  overflow: hidden;
-  padding: 20px 20px 20px 20px;
-  margin: 0px 20px 20px 0px;
-
-  h5 {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-  }
-}
-
 .color-grey {
   color: #9D9D9D;
+}
+
+.btnReturn {
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin-right: 20px;
+  border: 1px solid #F2F2F2;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s ease-in-out;
+
+
+  button {
+    position: relative;
+    background-color: #FFFFFF;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -9px;
+      left: 3.1px;
+      width: 2px;
+      height: 12px;
+      background-color: #C8C8C8;
+      border-radius: 10px;
+      transform: rotateZ(45deg);
+      transition: background-color .2s ease-in-out;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -8.2px;
+      right: 7px;
+      width: 2px;
+      height: 12px;
+      background-color: #C8C8C8;
+      border-radius: 10px;
+      transform: rotateZ(-45deg);
+      transition: background-color .2s ease-in-out;
+    }
+  }
+
+  &:hover {
+    border: 2px solid #aaaaaa;
+
+    button::before,
+    button::after {
+      background-color: #aaaaaa;
+    }
+  }
+
+  &:active {
+    border-width: 2px;
+    border-color: #484848;
+
+    button::before,
+    button::after {
+      background-color: #484848;
+    }
+  }
 }

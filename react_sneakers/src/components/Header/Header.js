@@ -12,11 +12,14 @@ const Header = ({ openCart }) => {
      </div>
     </div>
     <ul className='headerRight d-flex align-center'>
-     <li className="d-flex align-center mr-30">
+     <li className="d-flex align-center mr-20">
       <img width={18} height={18} src='/img/cart.svg' alt='' onClick={openCart} className={styles.cartOpen} />
-      <span>1205 руб.</span></li>
+      <span>Корзина</span></li>
+     <li className="d-flex align-center mr-20">
+      <a href="/favorite" className='d-flex mr-10' ><img width={18} height={18} src='/img/favorite_heart.svg' alt='' /></a>
+      <span>Избранное</span></li>
      <li className="d-flex align-center">
-      <img width={18} height={18} src='/img/user_icon.svg' alt='' className='mr-10' />
+      <a href="/profile" className='d-flex mr-10' ><img width={18} height={18} src='/img/user_icon.svg' alt='' /></a>
       <span>Профиль</span>
      </li>
     </ul>
