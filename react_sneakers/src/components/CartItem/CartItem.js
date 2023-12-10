@@ -9,13 +9,13 @@ const CartItem = ({ data, remove }) => {
 
  return (
   cards.map((item, index) => (
-   <div key={index} className="cart-item d-flex align-center">
+   <div key={index} className={styles.cartItem}>
     <img width={70} height={70} src={`/img/sneakers/${item.image}`} alt="Sneaker" className="mr-20" />
     <div className="cart-item__info mr-20">
      <h5>{item.name}</h5>
      <b>{item.price} руб.</b>
     </div>
-    <img className="cart-item__cross" name={item.id} width={32} height={32} src="/img/cross.svg" alt="" onClick={remove} />
+    <img className={styles.cartItem__cross} name={item.id} width={32} height={32} src="/img/cross.svg" alt="" onClick={remove} />
    </div>
   ))
  )

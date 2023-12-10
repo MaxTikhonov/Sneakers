@@ -1,10 +1,15 @@
 import dataCards from '../data/cards.json';
+import Main from '../components/Main/Main'
 import Header from './Header/Header';
 import Cart from '../containers/Cart/Cart';
 import Cards from '../containers/Cards/Cards';
+import Error from '../components/Error/Error';
+import Favorite from '../components/Favorite/Favorite';
+import Profile from '../components/Profile/Profile';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initItems } from '../store/itemsSlice';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -34,20 +39,21 @@ function App() {
 
   return (
     <div className="wrapper clear">
-      <Cart closeCart={onClickCart} open={openCart} />
-      <Header openCart={onClickCart} />
-      <div className="content p-45">
-        <div className='d-flex justify-between mb-35'>
-          <h1>Все кроссовки</h1>
-          <div className="search-block d-flex align-center">
-            <img src="/img/search.svg" alt="Search" />
-            <input type="text" placeholder="Поиск..." />
-          </div>
-        </div>
-        <div className="cards d-flex flex-wrap">
-          <Cards data={items} />
-        </div>
-      </div>
+      <Router>
+        <Cart closeCart={onClickCart} open={openCart} />
+        <Header openCart={onClickCart} />
+        <Routes>
+          <Route path='/' element={<div className="content p-45">
+            <Main />
+            <div className="cards d-flex flex-wrap">
+              <Cards data={items} />
+            </div>
+          </div>} />
+          <Route path='/favorite' element={<Favorite />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='*' element={<Error />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
