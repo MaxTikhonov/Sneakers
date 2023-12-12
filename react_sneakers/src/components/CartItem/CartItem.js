@@ -13,9 +13,19 @@ const CartItem = ({ data, remove }) => {
     <img width={70} height={70} src={`/img/sneakers/${item.image}`} alt="Sneaker" className="mr-20" />
     <div className="cart-item__info mr-20">
      <h5>{item.name}</h5>
-     <b>{item.price} руб.</b>
+     <div className='d-flex justify-between'>
+      <b>{item.price} руб.</b>
+      <b>x</b>
+      <b>1</b>
+     </div>
     </div>
-    <img className={styles.cartItem__cross} name={item.id} width={32} height={32} src="/img/cross.svg" alt="" onClick={remove} />
+    <div className='d-flex flex-column align-center'>
+     <img className={styles.cartItem__cross} name={item.id} width={40} height={40} src="/img/cross.svg" alt="" onClick={remove} />
+     <div className={styles.wrapperBtnMinPlus}>
+      <button className={styles.btnMinus}></button>
+      <button className={styles.btnPlus}></button>
+     </div>
+    </div>
    </div>
   ))
  )
