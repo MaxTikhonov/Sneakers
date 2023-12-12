@@ -159,17 +159,18 @@ b {
   }
 
   &:hover {
-    border: 2px solid #aaaaaa;
+    border: 2px solid #5c5c5c;
 
     button::before,
     button::after {
-      background-color: #aaaaaa;
+      background-color: #383838;
     }
   }
 
   &:active {
     border-width: 2px;
     border-color: #484848;
+    // border-top: 3.5px solid #4e4e4e;
 
     button::before,
     button::after {
