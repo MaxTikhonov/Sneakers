@@ -1,4 +1,3 @@
-import dataCards from '../data/cards.json';
 import Main from '../components/Main/Main'
 import Header from './Header/Header';
 import Cart from '../containers/Cart/Cart';
@@ -7,8 +6,8 @@ import Error from '../components/Error/Error';
 import Favorite from '../components/Favorite/Favorite';
 import Profile from '../components/Profile/Profile';
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { initItems } from '../store/itemsSlice';
+import { useDispatch } from 'react-redux';
+import { initItems, formatItems } from '../store/itemsSlice';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -23,6 +22,7 @@ function App() {
       .then(res => {
         setItems(res)
         dispatch(initItems(res))
+        dispatch(formatItems(res))
       })
   }, [])
 

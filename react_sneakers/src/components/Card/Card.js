@@ -2,7 +2,7 @@ import styles from './Card.module.scss';
 import { useState } from 'react';
 
 
-const Card = ({ data, plus, favorite }) => {
+const Card = ({ data, plus, favorite, format }) => {
  const [logic, setLogic] = useState({
   isAdded: false,
   isFavorite: false
@@ -26,7 +26,7 @@ const Card = ({ data, plus, favorite }) => {
    <div className={styles.cardBottom}>
     <div className="d-flex flex-column">
      <span>Цена:</span>
-     <b>{`${data.price} руб.`}</b>
+     <b>{`${format} руб.`}</b>
     </div>
     <div onClick={plus}>
      <img data-key={data.id} name={logic.isAdded ? "plus-checked" : "plus"} className={styles.btnPlus} width={32} height={32} src={logic.isAdded ? "/img/plus-checked.svg" : "/img/plus.svg"} alt="" onClick={onAdd} />

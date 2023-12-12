@@ -1,11 +1,13 @@
 import Card from '../../components/Card/Card';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, removeItem } from '../../store/cartSlice';
+import { addItem } from '../../store/cartSlice';
+import { selectFormatCost } from '../../store/itemsSlice';
 
 const CardsContainer = ({ data }) => {
   const dispatch = useDispatch();
   const [cards, setCards] = useState([]);
+  const format = useSelector(selectFormatCost);
   const cardsObj = cards.reduce((accum, item) => {
     accum[item['id']] = item;
     return accum;
@@ -14,12 +16,7 @@ const CardsContainer = ({ data }) => {
   const onPlus = (event) => {
     event.preventDefault();
     let idItem = event.target.dataset.key;
-    if (event.target.name === 'plus') {
-      dispatch(addItem(cardsObj[`${idItem}`]))
-    }
-    else if (event.target.name === 'plus-checked') {
-      dispatch(removeItem(idItem))
-    }
+    dispatch(addItem(cardsObj[`${idItem}`]))
   }
 
   const onFavorite = (event) => {
@@ -28,11 +25,11 @@ const CardsContainer = ({ data }) => {
 
   useEffect(() => {
     setCards(data)
-  }, [data]);
+  }, [data, format]);
 
   return (
     <>{cards.map((item, index) => {
-      return <Card plus={onPlus} favorite={onFavorite} key={index} data={item} />
+      return <Card plus={onPlus} favorite={onFavorite} key={index} data={item} format={format[index]} />
     })}
     </>
   )
