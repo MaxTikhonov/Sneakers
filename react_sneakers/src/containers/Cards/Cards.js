@@ -14,9 +14,12 @@ const CardsContainer = ({ data }) => {
   }, {})
 
   const onPlus = (event) => {
+    console.log(event)
     event.preventDefault();
-    let idItem = event.target.dataset.key;
-    dispatch(addItem(cardsObj[`${idItem}`]))
+    if (event.target.nodeName !== "DIV") {
+      let idItem = event.target.dataset.key;
+      dispatch(addItem(cardsObj[`${idItem}`]))
+    }
   }
 
   const onFavorite = (event) => {
