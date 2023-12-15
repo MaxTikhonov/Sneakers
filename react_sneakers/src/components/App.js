@@ -28,7 +28,6 @@ function App() {
 
   const onClickCart = (event) => {
     if (event.target.classList.contains('Header_cartOpen__mGfqy')) {
-      // console.log(event)
       setOpenCart(true);
     }
     if (event.target.classList.contains('Cart_cartItem__cross__vmWJC')) {
