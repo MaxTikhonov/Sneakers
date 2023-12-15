@@ -1,11 +1,15 @@
 @import 'macro-css';
 
 body {
-  margin: 0;
   font-family: 'Inter', system-ui;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #e7f6ff;
+}
+
+.hiddenBody {
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 * {
@@ -54,11 +58,11 @@ code {
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
