@@ -1,3 +1,28 @@
 .cartOpen {
- margin-right: 10px;
+ display: flex;
+ align-items: center;
+ margin-right: 20px;
+}
+
+
+.header {
+ border-bottom: 1px solid #EAEAEA;
+}
+
+.headerRight {
+ display: flex;
+ align-items: center;
+
+ span {
+  cursor: pointer;
+ }
+}
+
+.headerLeft {
+ display: flex;
+ align-items: center;
+
+ img:hover {
+  cursor: pointer;
+ }
 }

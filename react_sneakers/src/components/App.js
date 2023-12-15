@@ -27,11 +27,12 @@ function App() {
   }, [])
 
   const onClickCart = (event) => {
-    if (event.target.classList.contains('Header_cartOpen__mGfqy')) {
+    event.preventDefault();
+    if (event.currentTarget.classList.contains('Header_cartOpen__mGfqy')) {
       document.body.classList.add('hiddenBody')
       setOpenCart(true);
     }
-    if (event.target.classList.contains('Cart_cartItem__cross__vmWJC')) {
+    if (event.currentTarget.classList.contains('Cart_cartItem__cross__vmWJC')) {
       document.body.classList.remove('hiddenBody')
       setOpenCart(false);
     }
