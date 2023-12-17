@@ -36,7 +36,18 @@ code {
     monospace;
 }
 
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 7px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .search-block {
+  position: relative;
   border: 1px solid #F8F8F8;
   border-radius: 10px;
   padding: 15px;
