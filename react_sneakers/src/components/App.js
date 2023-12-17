@@ -45,12 +45,7 @@ function App() {
         <Cart closeCart={onClickCart} open={openCart} />
         <Header openCart={onClickCart} />
         <Routes>
-          <Route path='/' element={<div className="content p-45">
-            <Main />
-            <div className="cards d-flex flex-wrap">
-              <Cards data={items} />
-            </div>
-          </div>} />
+          <Route path='/' element={<Cards data={items} />} />
           <Route path='/favorite' element={<Favorite />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='*' element={<Error />} />
