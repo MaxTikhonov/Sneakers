@@ -31,9 +31,21 @@ const CardsContainer = ({ data }) => {
   }, [data, format]);
 
   return (
-    <>{cards.map((item, index) => {
-      return <Card plus={onPlus} favorite={onFavorite} key={index} data={item} format={format[index]} />
-    })}
+    <>
+      <div className="content p-45">
+        <div className='d-flex justify-between mb-35'>
+          <h1>Все кроссовки</h1>
+          <div className="search-block d-flex align-center">
+            <img src="/img/search.svg" alt="Search" />
+            <input type="text" placeholder="Поиск..." />
+          </div>
+        </div>
+        <div className="cards d-flex flex-wrap">
+          {cards.map((item, index) => {
+            return <Card plus={onPlus} favorite={onFavorite} key={index} data={item} format={format[index]} />
+          })}
+        </div>
+      </div>
     </>
   )
 }
