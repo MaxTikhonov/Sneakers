@@ -7,6 +7,7 @@ import { selectFormatCost } from '../../store/itemsSlice';
 const CardsContainer = ({ data }) => {
   const dispatch = useDispatch();
   const [cards, setCards] = useState([]);
+  const [inpValue, setInpValue] = useState('');
   const format = useSelector(selectFormatCost);
   const cardsObj = cards.reduce((accum, item) => {
     accum[item['id']] = item;
@@ -26,6 +27,19 @@ const CardsContainer = ({ data }) => {
     event.preventDefault();
   }
 
+  const onClose = () => {
+    setInpValue('')
+  }
+
+  const onSearch = (event) => {
+    let a = event.target.value;
+    if (event.target.value.length >= 20) {
+      a = "";
+      setInpValue(a.toLowerCase())
+    }
+    setInpValue(a.toLowerCase())
+  }
+
   useEffect(() => {
     setCards(data)
   }, [data, format]);
@@ -34,14 +48,15 @@ const CardsContainer = ({ data }) => {
     <>
       <div className="content p-45">
         <div className='d-flex justify-between mb-35'>
-          <h1>Все кроссовки</h1>
+          <h1 style={{ wordBreak: 'break-word' }} >{inpValue ? `Поиск по запросу: '${inpValue}'` : 'Все кроссовки'}</h1>
           <div className="search-block d-flex align-center">
             <img src="/img/search.svg" alt="Search" />
-            <input type="text" placeholder="Поиск..." />
+            {inpValue && <img src="/img/cross.svg" alt="close" className='close-btn' onClick={onClose} />}
+            <input style={{ paddingRight: '35px' }} type="text" onChange={onSearch} value={inpValue} placeholder="Поиск..." />
           </div>
         </div>
         <div className="cards d-flex flex-wrap">
-          {cards.map((item, index) => {
+          {cards.filter(item => item.name.toLowerCase().includes(inpValue)).map((item, index) => {
             return <Card plus={onPlus} favorite={onFavorite} key={index} data={item} format={format[index]} />
           })}
         </div>

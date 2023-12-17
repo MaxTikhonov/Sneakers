@@ -1,9 +1,8 @@
-import Main from '../components/Main/Main'
 import Header from './Header/Header';
 import Cart from '../containers/Cart/Cart';
 import Cards from '../containers/Cards/Cards';
 import Error from '../components/Error/Error';
-import Favorite from '../components/Favorite/Favorite';
+import Favorite from '../containers/Favorite/Favorite';
 import Profile from '../components/Profile/Profile';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';

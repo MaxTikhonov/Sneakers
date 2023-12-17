@@ -1,5 +1,9 @@
+import { useState } from 'react';
+
 
 const Favorite = () => {
+ const [cards, setCards] = useState([]);
+
  return (
   <div className='p-45'>
    <div className='d-flex'>
