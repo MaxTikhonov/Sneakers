@@ -46,6 +46,50 @@ code {
   }
 }
 
+.greenBtn {
+  border: 0;
+  color: #FFFFFF;
+  background-color: #9DD458;
+  width: 350px;
+  height: 55px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  transition: background-color .15s ease-in-out;
+
+  &:hover {
+    span {
+      cursor: pointer;
+    }
+
+    background-color: darken(#9DD458, 8%);
+  }
+
+  &:active {
+    span {
+      cursor: pointer;
+    }
+
+    background-color: darken(#9DD458, 14%);
+  }
+}
+
+.greenBtn {
+  img {
+    position: relative;
+    top: 2px;
+    left: 60px;
+    transition: transform .15s ease-in-out;
+  }
+
+  &:hover {
+    img {
+      transform: translateX(5px);
+    }
+  }
+}
+
 .search-block {
   position: relative;
   border: 1px solid #F8F8F8;

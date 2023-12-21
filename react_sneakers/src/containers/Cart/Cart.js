@@ -71,7 +71,7 @@ const Cart = (props) => {
         <b>{total.tax} руб.</b>
        </li>
       </ul>
-      <button className={styles.greenBtn}><span>Оформить заказ</span><img src="/img/arrow_right.svg" alt="" /></button>
+      <button className='greenBtn'><span>Оформить заказ</span><img src="/img/arrow_right.svg" alt="" /></button>
      </div>
     </div>
    </div>
