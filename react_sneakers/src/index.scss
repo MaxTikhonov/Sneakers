@@ -60,11 +60,31 @@ code {
   }
 }
 
+
+.cssTransBtn-enter {
+  opacity: 0;
+}
+
+.cssTransBtn-enter-active {
+  opacity: 1;
+  transition: opacity 60ms ease-in;
+}
+
+.cssTransBtn-exit {
+  opacity: 1;
+}
+
+.cssTransBtn-exit-active {
+  opacity: 0;
+  transition: opacity 60ms ease-in;
+}
+
 .wrapper {
   background: #FFFFFF;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
   border-radius: 20px;
-  max-width: 1080px;
+  width: 1080px;
+  max-width: 100%;
   margin: 50px auto;
 }
 
