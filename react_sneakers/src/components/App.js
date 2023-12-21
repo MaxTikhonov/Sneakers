@@ -45,7 +45,7 @@ function App() {
         <Header openCart={onClickCart} />
         <Routes>
           <Route path='/' element={<Cards data={items} />} />
-          <Route path='/favorite' element={<Favorite />} />
+          <Route path='/favorite' element={<Favorite data={items} />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='*' element={<Error />} />
         </Routes>

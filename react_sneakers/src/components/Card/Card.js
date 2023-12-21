@@ -36,7 +36,7 @@ const Card = ({ data, plus, favorite, format }) => {
       classNames="cssTransBtn"
      >
       <div onClick={favorite}>
-       {logic.isFavorite ? <img data-key={data.id} name="liked" src="/img/heart-liked.svg" alt="Unliked" onClick={onFavorite} /> : <img data-key={data.id} name="unliked" src="/img/heart-unliked.svg" alt="Unliked" onClick={onFavorite} />}
+       {logic.isFavorite ? <img data-key={data.id} name="liked" src="/img/heart-liked.svg" alt="liked" onClick={onFavorite} /> : <img data-key={data.id} name="unliked" src="/img/heart-unliked.svg" alt="Unliked" onClick={onFavorite} />}
       </div>
      </CSSTransition>
     </SwitchTransition>

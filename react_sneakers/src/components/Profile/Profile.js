@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
+
 const Profile = () => {
  return (
   <div className='p-45'>
    <div className='d-flex'>
-    <a href="/" className='btnReturn'><button></button></a>
+    <Link to="/" className='btnReturn'><button></button></Link>
     <h1>Мои покупки</h1>
    </div>
   </div>
