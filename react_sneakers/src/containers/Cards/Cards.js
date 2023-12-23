@@ -21,14 +21,9 @@ const CardsContainer = () => {
 
   const onFavorite = (event) => {
     event.preventDefault();
-    if (event.target.currentSrc.includes('heart-unliked')) {
-      dispatch(addFavorite(event.target.dataset.key))
+    if (event.target.currentSrc.includes('heart-unliked') || event.target.currentSrc.includes('heart-liked')) {
       dispatch(changeFavorite(event.target.dataset.key))
     }
-    else if (event.target.currentSrc.includes('heart-liked')) {
-      dispatch(removeFavorite(event.target.dataset.key))
-    }
-
   }
 
   const onClose = () => {

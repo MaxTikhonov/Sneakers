@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../../store/cartSlice";
-import { selectFavorite } from "../../store/favoriteSlice";
-import { selectItemsObj } from "../../store/itemsSlice";
+import { selectItemsObj, changeFavorite } from "../../store/itemsSlice";
 
 
 const Favorite = () => {
  const dispatch = useDispatch();
- const favoriteItems = useSelector(selectFavorite);
  const itemsObj = useSelector(selectItemsObj);
 
  const onPlus = (event) => {
@@ -23,8 +21,14 @@ const Favorite = () => {
 
  const onFavorite = (event) => {
   event.preventDefault();
-  console.log(event.target.dataset.key)
+  if (event.target.currentSrc.includes('heart-unliked') || event.target.currentSrc.includes('heart-liked')) {
+   dispatch(changeFavorite(event.target.dataset.key))
+  }
  }
+
+ useEffect(() => {
+
+ }, [itemsObj])
 
 
  return (
@@ -36,7 +40,7 @@ const Favorite = () => {
     </div>
     <div className="cards d-flex flex-wrap">
      {Object.values(itemsObj).map((item, index) => {
-      return item.id === favoriteItems[item.id] ? <Card plus={onPlus} favorite={onFavorite} key={index} data={item} /> : null
+      return item.favorite ? <Card plus={onPlus} favorite={onFavorite} key={index} data={item} /> : null
      })}
     </div>
    </div>
