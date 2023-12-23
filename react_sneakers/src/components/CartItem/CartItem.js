@@ -7,6 +7,7 @@ const CartItem = ({ data, remove, minus, add, amount }) => {
  useEffect(() => {
   setCards(data);
   setAmountProducts(amount)
+  console.log(amount)
  }, [data, amount])
 
  return (
@@ -16,7 +17,7 @@ const CartItem = ({ data, remove, minus, add, amount }) => {
     <div className="cart-item__info mr-20">
      <h5>{item.name}</h5>
      <div className='d-flex justify-between'>
-      <b>{item.price} руб.</b>
+      <b>{new Intl.NumberFormat("ru-RU").format(item.price)} руб.</b>
       <b>x</b>
       <b>{amountProducts[item.id]}</b>
      </div>
