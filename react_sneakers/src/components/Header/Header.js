@@ -1,4 +1,5 @@
 import styles from './Header.module.scss';
+import { Link } from 'react-router-dom';
 
 const Header = ({ openCart }) => {
  return (
@@ -16,10 +17,10 @@ const Header = ({ openCart }) => {
       <img width={18} height={18} src='/img/cart.svg' alt='' className='mr-10' />
       <span>Корзина</span></li>
      <li className="d-flex align-center mr-20">
-      <a href="/favorite" className='d-flex align-center' ><img className='mr-10' width={18} height={18} src='/img/favorite_heart.svg' alt='' /><span>Избранное</span></a>
+      <Link to="/favorite" className='d-flex align-center' ><img className='mr-10' width={18} height={18} src='/img/favorite_heart.svg' alt='' /><span>Избранное</span></Link>
      </li>
      <li className="d-flex align-center">
-      <a href="/profile" className='d-flex align-center' ><img className='mr-10' width={18} height={18} src='/img/user_icon.svg' alt='' /><span>Профиль</span></a>
+      <Link to="/profile" className='d-flex align-center' ><img className='mr-10' width={18} height={18} src='/img/user_icon.svg' alt='' /><span>Профиль</span></Link>
 
      </li>
     </ul>

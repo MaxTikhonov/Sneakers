@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../../store/cartSlice';
 import { selectFormatCost } from '../../store/itemsSlice';
+import { addFavorite, removeFavorite } from '../../store/favoriteSlice';
 
 const CardsContainer = ({ data }) => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const CardsContainer = ({ data }) => {
   const onPlus = (event) => {
     console.log(event)
     event.preventDefault();
-    if (event.target.nodeName !== "DIV") {
+    if (event.target.nodeName !== "DIV" && event.target.name !== 'plus-checked') {
       let idItem = event.target.dataset.key;
       dispatch(addItem(cardsObj[`${idItem}`]))
     }
@@ -25,6 +26,13 @@ const CardsContainer = ({ data }) => {
 
   const onFavorite = (event) => {
     event.preventDefault();
+    if (event.target.currentSrc.includes('heart-unliked')) {
+      dispatch(addFavorite(event.target.dataset.key))
+    }
+    else if (event.target.currentSrc.includes('heart-liked')) {
+      dispatch(removeFavorite(event.target.dataset.key))
+    }
+
   }
 
   const onClose = () => {
