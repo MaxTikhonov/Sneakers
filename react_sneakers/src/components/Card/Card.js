@@ -20,7 +20,7 @@ const Card = ({ data, plus, favorite, format }) => {
 
  useEffect(
   () => {
-   let timer1 = setTimeout(() => setLogic({ ...logic, isAdded: false }), 900);
+   let timer1 = setTimeout(() => setLogic({ ...logic, isAdded: false }), 500);
    return () => {
     clearTimeout(timer1);
    };

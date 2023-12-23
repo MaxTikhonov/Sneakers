@@ -18,7 +18,7 @@ const CardsContainer = ({ data }) => {
   const onPlus = (event) => {
     console.log(event)
     event.preventDefault();
-    if (event.target.nodeName !== "DIV") {
+    if (event.target.nodeName !== "DIV" && event.target.name !== 'plus-checked') {
       let idItem = event.target.dataset.key;
       dispatch(addItem(cardsObj[`${idItem}`]))
     }
