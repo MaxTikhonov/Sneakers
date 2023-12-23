@@ -13,13 +13,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   const dispatch = useDispatch();
   const [openCart, setOpenCart] = useState(false);
-  const [items, setItems] = useState([]);
 
   useEffect(() => {
     fetch('https://656afe72dac3630cf7278b17.mockapi.io/items')
       .then(res => res.json())
       .then(res => {
-        setItems(res)
         dispatch(initItems(res))
       })
   }, [])
