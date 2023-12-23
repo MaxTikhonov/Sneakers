@@ -1,26 +1,21 @@
 import Card from '../../components/Card/Card';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../../store/cartSlice';
-import { selectFormatCost } from '../../store/itemsSlice';
+import { selectItemsObj, changeFavorite } from '../../store/itemsSlice';
 import { addFavorite, removeFavorite } from '../../store/favoriteSlice';
 
-const CardsContainer = ({ data }) => {
+const CardsContainer = () => {
   const dispatch = useDispatch();
-  const [cards, setCards] = useState([]);
   const [inpValue, setInpValue] = useState('');
-  const format = useSelector(selectFormatCost);
-  const cardsObj = cards.reduce((accum, item) => {
-    accum[item['id']] = item;
-    return accum;
-  }, {})
+  const itemsObj = useSelector(selectItemsObj);
 
   const onPlus = (event) => {
     console.log(event)
     event.preventDefault();
     if (event.target.nodeName !== "DIV" && event.target.name !== 'plus-checked') {
       let idItem = event.target.dataset.key;
-      dispatch(addItem(cardsObj[`${idItem}`]))
+      dispatch(addItem(itemsObj[`${idItem}`]))
     }
   }
 
@@ -28,6 +23,7 @@ const CardsContainer = ({ data }) => {
     event.preventDefault();
     if (event.target.currentSrc.includes('heart-unliked')) {
       dispatch(addFavorite(event.target.dataset.key))
+      dispatch(changeFavorite(event.target.dataset.key))
     }
     else if (event.target.currentSrc.includes('heart-liked')) {
       dispatch(removeFavorite(event.target.dataset.key))
@@ -49,8 +45,8 @@ const CardsContainer = ({ data }) => {
   }
 
   useEffect(() => {
-    setCards(data)
-  }, [data, format]);
+    console.log(itemsObj)
+  }, [itemsObj])
 
   return (
     <>
@@ -64,8 +60,8 @@ const CardsContainer = ({ data }) => {
           </div>
         </div>
         <div className="cards d-flex flex-wrap">
-          {cards.filter(item => item.name.toLowerCase().includes(inpValue)).map((item, index) => {
-            return <Card plus={onPlus} favorite={onFavorite} key={index} data={item} format={format[index]} />
+          {Object.values(itemsObj).filter(item => item.name.toLowerCase().includes(inpValue)).map((item, index) => {
+            return <Card plus={onPlus} favorite={onFavorite} key={index} data={item} />
           })}
         </div>
       </div>

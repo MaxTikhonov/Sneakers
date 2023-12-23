@@ -3,26 +3,21 @@ import { createSlice } from '@reduxjs/toolkit';
 export const itemsSlice = createSlice({
  name: 'items',
  initialState: {
-  items: [],
-  formatCost: []
+  itemsObj: {}
  },
  reducers: {
-  formatItems: (state, data) => {
-   const cards = data.payload.reduce((accum, item, index) => {
-    let a = new Intl.NumberFormat("ru-RU").format(item.price)
-    accum[index] = a;
-    return accum;
-   }, [])
-   state.formatCost = cards;
-  },
   initItems: (state, data) => {
-   let items = data.payload;
-   state.items = items;
+   state.itemsObj = data.payload.reduce((accum, item) => {
+    accum[item['id']] = item;
+    return accum;
+   }, {})
   },
+  changeFavorite: (state, data) => {
+   console.log(data.payload)
+  }
  }
 })
 
-export const { initItems, formatItems } = itemsSlice.actions;
-export const selectItems = state => state.items.items;
-export const selectFormatCost = state => state.items.formatCost;
+export const { initItems, changeFavorite } = itemsSlice.actions;
+export const selectItemsObj = state => state.items.itemsObj;
 export default itemsSlice.reducer;

@@ -6,7 +6,7 @@ import Favorite from '../containers/Favorite/Favorite';
 import Profile from '../components/Profile/Profile';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { initItems, formatItems } from '../store/itemsSlice';
+import { initItems } from '../store/itemsSlice';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -21,7 +21,6 @@ function App() {
       .then(res => {
         setItems(res)
         dispatch(initItems(res))
-        dispatch(formatItems(res))
       })
   }, [])
 
@@ -44,8 +43,8 @@ function App() {
         <Cart closeCart={onClickCart} open={openCart} />
         <Header openCart={onClickCart} />
         <Routes>
-          <Route path='/' element={<Cards data={items} />} />
-          <Route path='/favorite' element={<Favorite data={items} />} />
+          <Route path='/' element={<Cards />} />
+          <Route path='/favorite' element={<Favorite />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='*' element={<Error />} />
         </Routes>

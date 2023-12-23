@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 
-const Card = ({ data, plus, favorite, format }) => {
+const Card = ({ data, plus, favorite }) => {
  const [logic, setLogic] = useState({
   isAdded: false,
   isFavorite: false
@@ -36,7 +36,7 @@ const Card = ({ data, plus, favorite, format }) => {
       classNames="cssTransBtn"
      >
       <div onClick={favorite}>
-       {logic.isFavorite ? <img data-key={data.id} name="liked" src="/img/heart-liked.svg" alt="liked" onClick={onFavorite} /> : <img data-key={data.id} name="unliked" src="/img/heart-unliked.svg" alt="Unliked" onClick={onFavorite} />}
+       {data.favorite ? <img data-key={data.id} name="liked" src="/img/heart-liked.svg" alt="liked" onClick={onFavorite} /> : <img data-key={data.id} name="unliked" src="/img/heart-unliked.svg" alt="Unliked" onClick={onFavorite} />}
       </div>
      </CSSTransition>
     </SwitchTransition>
@@ -46,7 +46,7 @@ const Card = ({ data, plus, favorite, format }) => {
    <div className={styles.cardBottom}>
     <div className="d-flex flex-column">
      <span>Цена:</span>
-     <b>{`${format} руб.`}</b>
+     <b>{`${new Intl.NumberFormat("ru-RU").format(data.price)} руб.`}</b>
     </div>
     <SwitchTransition>
      <CSSTransition
