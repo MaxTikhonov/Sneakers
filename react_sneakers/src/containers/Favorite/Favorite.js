@@ -1,6 +1,6 @@
 import Card from '../../components/Card/Card';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../../store/cartSlice";
 import { selectItemsObj, changeFavorite } from "../../store/itemsSlice";
@@ -32,13 +32,13 @@ const Favorite = () => {
 
 
  return (
-  <div className='content p-45'>
+  <div className='content p-45' style={{ minHeight: '100vh' }}>
    <div className='d-flex flex-column'>
     <div className='d-flex mb-35'>
      <Link to="/" className='btnReturn'><button></button></Link>
      <h1>Мое избранное</h1>
     </div>
-    <div className="cards d-flex flex-wrap">
+    <div className="d-flex flex-wrap">
      {Object.values(itemsObj).map((item, index) => {
       return item.favorite ? <Card plus={onPlus} favorite={onFavorite} key={index} data={item} /> : null
      })}
