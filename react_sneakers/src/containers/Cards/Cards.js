@@ -54,7 +54,7 @@ const CardsContainer = () => {
             <input style={{ paddingRight: '35px' }} type="text" onChange={onSearch} value={inpValue} placeholder="Поиск..." />
           </div>
         </div>
-        <div className="cards d-flex flex-wrap">
+        <div className="d-flex flex-wrap">
           {Object.values(itemsObj).filter(item => item.name.toLowerCase().includes(inpValue)).map((item, index) => {
             return <Card plus={onPlus} favorite={onFavorite} key={index} data={item} />
           })}
