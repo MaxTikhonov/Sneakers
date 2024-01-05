@@ -75,7 +75,7 @@ const Cart = (props) => {
       </div>
      </div> : <div className={styles.emptyCart}><img className='mb-20' width={120} height={120} src="/img/emptyCart.svg" alt="emptyCart" />
       <h2 className='mb-10'>Корзина пустая</h2>
-      <p className={styles.text}>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p><button className='greenBtn'><span className='ml-25'>Назад</span><img className='arrowLeft' src="/img/arrow_left.svg" alt="" /></button>
+      <p className={styles.text}>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p><button className='greenBtn cartItem__cross' onClick={props.closeCart}><span className='ml-25'>Назад</span><img className='arrowLeft' src="/img/arrow_left.svg" alt="" /></button>
      </div>}
     </div>
    </div>
