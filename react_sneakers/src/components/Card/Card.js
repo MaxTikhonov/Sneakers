@@ -1,13 +1,15 @@
 import styles from './Card.module.scss';
 import { useState, useEffect } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import ContentLoader from 'react-content-loader';
 
 
-const Card = ({ data, plus, favorite }) => {
+const Card = ({ data, plus, favorite, isLoading }) => {
  const [logic, setLogic] = useState({
   isAdded: false,
   isFavorite: false
  });
+
 
  const onAdd = () => {
   logic.isAdded ? setLogic({ ...logic, isAdded: false }) : setLogic({ ...logic, isAdded: true })
@@ -17,17 +19,31 @@ const Card = ({ data, plus, favorite }) => {
   logic.isFavorite ? setLogic({ ...logic, isFavorite: false }) : setLogic({ ...logic, isFavorite: true })
  }
 
-
  useEffect(
   () => {
    let timer1 = setTimeout(() => setLogic({ ...logic, isAdded: false }), 500);
    return () => {
     clearTimeout(timer1);
    };
+
   }, [logic]);
 
+
  return (
-  <div className={styles.card}>
+  <>{isLoading ? <div className={styles.card}><ContentLoader
+   speed={1}
+   width={400}
+   height={286}
+   viewBox="0 0 400 286"
+   backgroundColor="#f3f3f3"
+   foregroundColor="#ecebeb"
+  >
+   <rect x="0" y="0" rx="10" ry="10" width="150" height="91" />
+   <rect x="0" y="106" rx="3" ry="3" width="150" height="15" />
+   <rect x="0" y="125" rx="3" ry="3" width="93" height="15" />
+   <rect x="0" y="147" rx="8" ry="8" width="80" height="24" />
+   <rect x="120" y="142" rx="8" ry="8" width="32" height="32" />
+  </ContentLoader></div> : <div className={styles.card}>
    <div className={styles.favorite}>
     <SwitchTransition>
      <CSSTransition
@@ -60,7 +76,7 @@ const Card = ({ data, plus, favorite }) => {
      </CSSTransition>
     </SwitchTransition>
    </div>
-  </div>
+  </div>}</>
  )
 }
 export default Card;

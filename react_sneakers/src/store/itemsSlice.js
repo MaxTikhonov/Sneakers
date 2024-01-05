@@ -13,7 +13,6 @@ export const itemsSlice = createSlice({
    }, {})
   },
   changeFavorite: (state, data) => {
-   console.log(data.payload)
    state.itemsObj[data.payload].favorite ? state.itemsObj[data.payload].favorite = false : state.itemsObj[data.payload].favorite = true;
   }
  }

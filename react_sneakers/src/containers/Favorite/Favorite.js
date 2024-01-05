@@ -11,7 +11,6 @@ const Favorite = () => {
  const itemsObj = useSelector(selectItemsObj);
 
  const onPlus = (event) => {
-  console.log(event)
   event.preventDefault();
   if (event.target.nodeName !== "DIV") {
    let idItem = event.target.dataset.key;

@@ -7,7 +7,6 @@ const CartItem = ({ data, remove, minus, add, amount }) => {
  useEffect(() => {
   setCards(data);
   setAmountProducts(amount)
-  console.log(amount)
  }, [data, amount])
 
  return (
