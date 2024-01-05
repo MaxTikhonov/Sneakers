@@ -1,17 +1,15 @@
 import Card from '../../components/Card/Card';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../../store/cartSlice';
 import { selectItemsObj, changeFavorite } from '../../store/itemsSlice';
-import { addFavorite, removeFavorite } from '../../store/favoriteSlice';
 
-const CardsContainer = () => {
+const CardsContainer = ({ loading }) => {
   const dispatch = useDispatch();
   const [inpValue, setInpValue] = useState('');
   const itemsObj = useSelector(selectItemsObj);
 
   const onPlus = (event) => {
-    console.log(event)
     event.preventDefault();
     if (event.target.nodeName !== "DIV" && event.target.name !== 'plus-checked') {
       let idItem = event.target.dataset.key;
@@ -39,9 +37,12 @@ const CardsContainer = () => {
     setInpValue(a.toLowerCase())
   }
 
-  useEffect(() => {
-    console.log(itemsObj)
-  }, [itemsObj])
+  const renderItems = () => {
+    const filtredItems = Object.values(itemsObj).filter(item => item.name.toLowerCase().includes(inpValue));
+    return ((loading ? [...Array(10)] : filtredItems).map((item, index) => {
+      return <Card plus={onPlus} favorite={onFavorite} key={index} data={item} isLoading={loading} />
+    }))
+  }
 
   return (
     <>
@@ -55,9 +56,10 @@ const CardsContainer = () => {
           </div>
         </div>
         <div className="d-flex flex-wrap">
-          {Object.values(itemsObj).filter(item => item.name.toLowerCase().includes(inpValue)).map((item, index) => {
-            return <Card plus={onPlus} favorite={onFavorite} key={index} data={item} />
-          })}
+          {/* {Object.values(itemsObj).filter(item => item.name.toLowerCase().includes(inpValue)).map((item, index) => {
+            return <Card plus={onPlus} favorite={onFavorite} key={index} data={item} isLoading={loading} />
+          })} */}
+          {renderItems()}
         </div>
       </div>
     </>

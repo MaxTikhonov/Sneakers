@@ -10,7 +10,6 @@ export const cartSlice = createSlice({
  reducers: {
   addItem: (state, data) => {
    let articul = data.payload;
-   console.log(typeof articul)
    if (!state.value[articul.id]) {
     state.value[articul.id] = articul;
     state.valueArr = Object.values(state.value);

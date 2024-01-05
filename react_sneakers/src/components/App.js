@@ -5,7 +5,7 @@ import Error from '../components/Error/Error';
 import Favorite from '../containers/Favorite/Favorite';
 import Profile from '../components/Profile/Profile';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'
 import { initItems } from '../store/itemsSlice';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -13,14 +13,22 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   const dispatch = useDispatch();
   const [openCart, setOpenCart] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    fetch('https://656afe72dac3630cf7278b17.mockapi.io/items')
+  async function fetchData() {
+    setIsLoading(true);
+    await fetch('https://656afe72dac3630cf7278b17.mockapi.io/items')
       .then(res => res.json())
       .then(res => {
         dispatch(initItems(res))
+        setIsLoading(false);
       })
+  }
+
+  useEffect(() => {
+    fetchData();
   }, [])
+
 
   const onClickCart = (event) => {
     event.preventDefault();
@@ -41,7 +49,7 @@ function App() {
         <Cart closeCart={onClickCart} open={openCart} />
         <Header openCart={onClickCart} />
         <Routes>
-          <Route path='/' element={<Cards />} />
+          <Route path='/' element={<Cards loading={isLoading} />} />
           <Route path='/favorite' element={<Favorite />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='*' element={<Error />} />
