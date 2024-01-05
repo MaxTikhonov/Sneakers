@@ -32,11 +32,11 @@ function App() {
 
   const onClickCart = (event) => {
     event.preventDefault();
-    if (event.currentTarget.classList.contains('Header_cartOpen__mGfqy')) {
+    if (event.currentTarget.classList.value.indexOf('cartOpen') > -1) {
       document.body.classList.add('hiddenBody')
       setOpenCart(true);
     }
-    if (event.currentTarget.classList.contains('Cart_cartItem__cross__vmWJC')) {
+    if (event.currentTarget.classList.value.indexOf('cartItem__cross') > -1) {
       document.body.classList.remove('hiddenBody')
       setOpenCart(false);
     }
