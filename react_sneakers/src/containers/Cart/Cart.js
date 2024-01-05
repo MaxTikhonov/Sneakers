@@ -49,30 +49,34 @@ const Cart = (props) => {
   setTotal((prev) => ({ ...prev, cost: count, tax: countTax }))
  }, [cart, items, chosenAmount])
 
-
  return (
   <CSSTransition in={open} classNames='animated' timeout={300} unmountOnExit>
    <div className='overlay'>
     <div className={styles.drawer}>
      <h2 className='d-flex justify-between mb-40'>Корзина <img className={styles.cartItem__cross} width={32} height={32} src="/img/cross.svg" alt="" onClick={props.closeCart} /></h2>
-     <div className={styles.items}>
-      <CartItem data={items} remove={remove} minus={minus} add={add} amount={chosenAmount} />
-     </div>
-     <div className={styles.cart__totalblock}>
-      <ul className={styles.totalblock__info}>
-       <li>
-        <span>Итого: </span>
-        <div className='ml-5 mr-5'></div>
-        <b>{total.cost} руб.</b>
-       </li>
-       <li>
-        <span>Налог 5%: </span>
-        <div className='ml-5 mr-5'></div>
-        <b>{total.tax} руб.</b>
-       </li>
-      </ul>
-      <button className='greenBtn'><span>Оформить заказ</span><img src="/img/arrow_right.svg" alt="" /></button>
-     </div>
+     {items.length > 0 ? <div style={{ height: '100%' }}>
+      <div className={styles.items}>
+       <CartItem data={items} remove={remove} minus={minus} add={add} amount={chosenAmount} />
+      </div>
+      <div className={styles.cart__totalblock}>
+       <ul className={styles.totalblock__info}>
+        <li>
+         <span>Итого: </span>
+         <div className='ml-5 mr-5'></div>
+         <b>{total.cost} руб.</b>
+        </li>
+        <li>
+         <span>Налог 5%: </span>
+         <div className='ml-5 mr-5'></div>
+         <b>{total.tax} руб.</b>
+        </li>
+       </ul>
+       <button className='greenBtn'><span>Оформить заказ</span><img className='arrowRight' src="/img/arrow_right.svg" alt="" /></button>
+      </div>
+     </div> : <div className={styles.emptyCart}><img className='mb-20' width={120} height={120} src="/img/emptyCart.svg" alt="emptyCart" />
+      <h2 className='mb-10'>Корзина пустая</h2>
+      <p className={styles.text}>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p><button className='greenBtn'><span className='ml-25'>Назад</span><img className='arrowLeft' src="/img/arrow_left.svg" alt="" /></button>
+     </div>}
     </div>
    </div>
   </CSSTransition>
