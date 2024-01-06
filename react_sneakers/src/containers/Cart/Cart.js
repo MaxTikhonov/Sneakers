@@ -3,7 +3,7 @@ import CartItem from '../../components/CartItem/CartItem';
 import { CSSTransition } from 'react-transition-group';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCart, removeItem, selectCartArr, selectChosenAmount, minusItem, addItem } from '../../store/cartSlice';
+import { selectCart, removeItem, selectCartArr, selectChosenAmount, minusItem, addItem, buyItems, clearItems, selectPurchased, switchPurchased } from '../../store/cartSlice';
 
 const Cart = (props) => {
  const dispatch = useDispatch();
@@ -12,6 +12,7 @@ const Cart = (props) => {
  const chosenAmount = useSelector(selectChosenAmount);
  const [open, setOpen] = useState(false);
  const [total, setTotal] = useState({ cost: 0, tax: 0 });
+ const purchased = useSelector(selectPurchased);
 
  const remove = (event) => {
   dispatch(removeItem(event.target.name))
@@ -24,6 +25,27 @@ const Cart = (props) => {
  const add = (event) => {
   if (cart[event.target.name]) {
    dispatch(addItem(cart[event.target.name]))
+  }
+ }
+
+ const buy = () => {
+  dispatch(buyItems(chosenAmount));
+  dispatch(clearItems());
+  dispatch(switchPurchased());
+ }
+
+ const emptyOrPurchased = () => {
+  if (!purchased) {
+   return <div className={styles.emptyCart}><img className='mb-20' width={120} height={120} src="/img/emptyCart.svg" alt="emptyCart" />
+    <h2 className='mb-10'>Корзина пустая</h2>
+    <p className={styles.text}>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p><button className='greenBtn cartItem__cross' onClick={props.closeCart}><span className='ml-25'>Назад</span><img className='arrowLeft' src="/img/arrow_left.svg" alt="" /></button>
+   </div>
+  }
+  else {
+   return <div className={styles.emptyCart}><img className='mb-20' width={120} height={120} src="/img/purchased.svg" alt="purchased" />
+    <h2 className='mb-10' style={{ color: 'green' }}>Заказ оформлен!</h2>
+    <p className={styles.text}>Ваш заказ скоро будет передан курьерской доставке. Спасибо!</p><button className='greenBtn cartItem__cross' onClick={props.closeCart}><span className='ml-25'>Назад</span><img className='arrowLeft' src="/img/arrow_left.svg" alt="" /></button>
+   </div>
   }
  }
 
@@ -47,6 +69,7 @@ const Cart = (props) => {
    countTax = Math.floor(count / 100 * 5);
   }
   setTotal((prev) => ({ ...prev, cost: count, tax: countTax }))
+  console.log(items)
  }, [cart, items, chosenAmount])
 
  return (
@@ -71,12 +94,9 @@ const Cart = (props) => {
          <b>{total.tax} руб.</b>
         </li>
        </ul>
-       <button className='greenBtn'><span>Оформить заказ</span><img className='arrowRight' src="/img/arrow_right.svg" alt="" /></button>
+       <button onClick={buy} className='greenBtn'><span>Оформить заказ</span><img className='arrowRight' src="/img/arrow_right.svg" alt="" /></button>
       </div>
-     </div> : <div className={styles.emptyCart}><img className='mb-20' width={120} height={120} src="/img/emptyCart.svg" alt="emptyCart" />
-      <h2 className='mb-10'>Корзина пустая</h2>
-      <p className={styles.text}>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p><button className='greenBtn cartItem__cross' onClick={props.closeCart}><span className='ml-25'>Назад</span><img className='arrowLeft' src="/img/arrow_left.svg" alt="" /></button>
-     </div>}
+     </div> : emptyOrPurchased()}
     </div>
    </div>
   </CSSTransition>

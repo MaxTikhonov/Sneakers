@@ -5,15 +5,21 @@ export const cartSlice = createSlice({
  initialState: {
   value: {},
   valueArr: [],
-  chosenAmount: {}
+  chosenAmount: {},
+  purchasedItems: {},
+  purchased: false
  },
  reducers: {
   addItem: (state, data) => {
    let articul = data.payload;
+   console.log(articul)
    if (!state.value[articul.id]) {
+
+    console.log('зашли')
     state.value[articul.id] = articul;
     state.valueArr = Object.values(state.value);
    }
+   console.log('не зашли')
    state.chosenAmount[articul.id] ? state.chosenAmount[articul.id]++ : state.chosenAmount[articul.id] = 1;
   },
   minusItem: (state, data) => {
@@ -30,14 +36,27 @@ export const cartSlice = createSlice({
   removeItem: (state, data) => {
    let articul = data.payload;
    delete state.value[articul];
-   delete state.chosenAmount[articul]
+   delete state.chosenAmount[articul];
    state.valueArr = Object.values(state.value);
+  },
+  buyItems: (state, data) => {
+   state.purchasedItems = data.payload;
+  },
+  clearItems: (state) => {
+   state.chosenAmount = {};
+   state.valueArr = [];
+   state.value = {};
+  },
+  switchPurchased: (state, data) => {
+   state.purchased = !state.purchased;
   }
  }
 })
 
-export const { addItem, removeItem, minusItem } = cartSlice.actions;
+export const { addItem, removeItem, minusItem, buyItems, clearItems, switchPurchased } = cartSlice.actions;
 export const selectCart = state => state.cart.value;
 export const selectCartArr = state => state.cart.valueArr;
 export const selectChosenAmount = state => state.cart.chosenAmount;
+export const selectPurchasedItems = state => state.cart.purchasedItems;
+export const selectPurchased = state => state.cart.purchased;
 export default cartSlice.reducer;
