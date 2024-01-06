@@ -56,9 +56,6 @@ const CardsContainer = ({ loading }) => {
           </div>
         </div>
         <div className="d-flex flex-wrap">
-          {/* {Object.values(itemsObj).filter(item => item.name.toLowerCase().includes(inpValue)).map((item, index) => {
-            return <Card plus={onPlus} favorite={onFavorite} key={index} data={item} isLoading={loading} />
-          })} */}
           {renderItems()}
         </div>
       </div>

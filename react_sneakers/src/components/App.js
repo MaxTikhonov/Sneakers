@@ -4,6 +4,7 @@ import Cards from '../containers/Cards/Cards';
 import Error from '../components/Error/Error';
 import Favorite from '../containers/Favorite/Favorite';
 import Profile from '../components/Profile/Profile';
+import { switchPurchased, selectPurchased } from '../store/cartSlice';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { initItems } from '../store/itemsSlice';
@@ -14,6 +15,7 @@ function App() {
   const dispatch = useDispatch();
   const [openCart, setOpenCart] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const purchased = useSelector(selectPurchased);
 
   async function fetchData() {
     setIsLoading(true);
@@ -29,6 +31,9 @@ function App() {
     fetchData();
   }, [])
 
+  useEffect(() => {
+
+  }, [purchased])
 
   const onClickCart = (event) => {
     event.preventDefault();
@@ -39,6 +44,9 @@ function App() {
     if (event.currentTarget.classList.value.indexOf('cartItem__cross') > -1) {
       document.body.classList.remove('hiddenBody')
       setOpenCart(false);
+      if (purchased) {
+        dispatch(switchPurchased());
+      }
     }
   }
 

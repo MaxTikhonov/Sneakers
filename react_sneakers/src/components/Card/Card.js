@@ -4,7 +4,7 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import ContentLoader from 'react-content-loader';
 
 
-const Card = ({ data, plus, favorite, isLoading }) => {
+const Card = ({ data, plus, favorite, isLoading, profile }) => {
  const [logic, setLogic] = useState({
   isAdded: false,
   isFavorite: false
@@ -27,6 +27,12 @@ const Card = ({ data, plus, favorite, isLoading }) => {
    };
 
   }, [logic]);
+
+ const renderFunc = () => {
+  if (!profile) {
+   return
+  }
+ }
 
 
  return (
