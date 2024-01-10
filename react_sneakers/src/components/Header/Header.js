@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Header = ({ openCart }) => {
  return (
-  <header className='header p-45'>
+  <header className='header pl-45 pr-45 pb-30 pt-45'>
    <div className="d-flex justify-between">
     <div className={styles.headerLeft}>
      <img width={40} height={40} src='/img/logo.svg' alt='' className="mr-15" />

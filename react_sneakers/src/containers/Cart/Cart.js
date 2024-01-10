@@ -69,7 +69,6 @@ const Cart = (props) => {
    countTax = Math.floor(count / 100 * 5);
   }
   setTotal((prev) => ({ ...prev, cost: count, tax: countTax }))
-  console.log(items)
  }, [cart, items, chosenAmount])
 
  return (

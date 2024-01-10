@@ -46,7 +46,7 @@ const CardsContainer = ({ loading }) => {
 
   return (
     <>
-      <div className="content p-45">
+      <div className="content pt-30 pl-45 pr-45">
         <div className='d-flex justify-between mb-35'>
           <h1 style={{ wordBreak: 'break-word' }} >{inpValue ? `Поиск по запросу: '${inpValue}'` : 'Все кроссовки'}</h1>
           <div className="search-block d-flex align-center">
@@ -55,7 +55,7 @@ const CardsContainer = ({ loading }) => {
             <input style={{ paddingRight: '35px' }} type="text" onChange={onSearch} value={inpValue} placeholder="Поиск..." />
           </div>
         </div>
-        <div className="d-flex flex-wrap">
+        <div className="d-flex flex-wrap justify-center">
           {renderItems()}
         </div>
       </div>
