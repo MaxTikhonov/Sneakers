@@ -20,6 +20,7 @@ const Carousel = ({ images }) => {
    slideRight();
   }, 5000)
  })
+
  return (
   <><div className="carousel" onMouseEnter={() => { setAutoplay(false); clearTimeout(timeOut) }} onMouseLeave={() => { setAutoplay(true) }}>
    <div className="carouselWrapper">
