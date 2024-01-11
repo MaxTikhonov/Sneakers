@@ -30,8 +30,8 @@ const Carousel = ({ images }) => {
       <div className="cardOverlay"></div>
      </div>
     })}
-    <div className="carousel_arrow_left" onClick={slideLeft}>&lsaquo;</div>
-    <div className="carousel_arrow_right" onClick={slideRight}>&rsaquo;</div>
+    <div className="carousel_arrow_left" onClick={slideLeft}><span>&lsaquo;</span></div>
+    <div className="carousel_arrow_right" onClick={slideRight}><span>&rsaquo;</span></div>
     <div className='carousel_pagination'>
      {images.map((_, index) => {
       return <div key={index} className={index === current ? 'pagination_dot pagination_dot-active' : 'pagination_dot'} onClick={() => setCurrent(index)}></div>

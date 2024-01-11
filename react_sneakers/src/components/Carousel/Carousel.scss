@@ -60,15 +60,27 @@
  height: 30px;
  border-radius: 50%;
  padding-bottom: 7px;
- cursor: pointer;
 }
 
 .carousel_arrow_left {
  left: 15px;
+
+ span {
+  position: absolute;
+  left: 7px;
+  cursor: pointer;
+ }
 }
 
 .carousel_arrow_right {
  right: 15px;
+
+
+ span {
+  position: absolute;
+  right: 7px;
+  cursor: pointer;
+ }
 }
 
 .carousel_pagination {
