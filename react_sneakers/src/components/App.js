@@ -55,14 +55,14 @@ function App() {
   return (
     <div className="wrapper clear">
       <Router>
-        <Cart closeCart={onClickCart} open={openCart} />
-        <Header openCart={onClickCart} />
-        <Slider />
         <Routes>
-          <Route path='/' element={<Cards loading={isLoading} />} />
-          <Route path='/favorite' element={<Favorite />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='*' element={<Error />} />
+          <Route path='/' element={<> <Cart closeCart={onClickCart} open={openCart} /> <Header openCart={onClickCart} /> <Slider />  <Cards loading={isLoading} /> </>} />
+          <Route path='/favorite' element={<><Cart closeCart={onClickCart} open={openCart} />
+            <Header openCart={onClickCart} /> <Favorite /></>} />
+          <Route path='/profile' element={<><Cart closeCart={onClickCart} open={openCart} />
+            <Header openCart={onClickCart} /> <Profile /></>} />
+          <Route path='*' element={<><Cart closeCart={onClickCart} open={openCart} />
+            <Header openCart={onClickCart} /> <Error /></>} />
         </Routes>
       </Router>
     </div>
