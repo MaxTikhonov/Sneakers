@@ -1,0 +1,34 @@
+@function get_vw_large($value) {
+ $vw-viewport-large: 1920;
+ $vw-context: $vw-viewport-large * 0.01 * 1px;
+ @return $value/ $vw-context * 1vw;
+ @return $value;
+}
+
+@function get_vw_medium($value) {
+ $vw-viewport-medium: 1400;
+ $vw-context: $vw-viewport-medium * 0.01 * 1px;
+ @return $value/ $vw-context * 1vw;
+ @return $value;
+}
+
+@function get_vw_premedium($value) {
+ $vw-viewport-medium: 1000;
+ $vw-context: $vw-viewport-medium * 0.01 * 1px;
+ @return $value/ $vw-context * 1vw;
+ @return $value;
+}
+
+@function get_vw_aftersmall($value) {
+ $vw-viewport-medium: 700;
+ $vw-context: $vw-viewport-medium * 0.01 * 1px;
+ @return $value/ $vw-context * 1vw;
+ @return $value;
+}
+
+@function get_vw_small($value) {
+ $vw-viewport-small: 480;
+ $vw-context: $vw-viewport-small * 0.01 * 1px;
+ @return $value/ $vw-context * 1vw;
+ @return $value;
+}

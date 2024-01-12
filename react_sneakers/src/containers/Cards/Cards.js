@@ -1,3 +1,4 @@
+import styles from './Cards.module.scss';
 import Card from '../../components/Card/Card';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -46,8 +47,8 @@ const CardsContainer = ({ loading }) => {
 
   return (
     <>
-      <div className="content pt-30 pl-45 pr-45">
-        <div className='d-flex justify-between mb-35'>
+      <div className={styles.cards}>
+        <div className='d-flex justify-between mb-35 align-center'>
           <h1 style={{ wordBreak: 'break-word' }} >{inpValue ? `Поиск по запросу: '${inpValue}'` : 'Все кроссовки'}</h1>
           <div className="search-block d-flex align-center">
             <img src="/img/search.svg" alt="Search" />

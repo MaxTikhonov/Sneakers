@@ -1,5 +1,7 @@
+@use '../../scss/mixins/mixins.scss' as *;
+
 .carousel {
- display: flex;
+ // display: flex;
  height: 300px;
  width: 100%;
  max-width: 961px;
@@ -36,13 +38,6 @@
 .cardImage {
  width: 100%;
  object-fit: cover;
-}
-
-.cardOverlay {
- position: absolute;
- width: 100%;
- height: 100%;
- background: rgba(0, 0, 0, .1);
 }
 
 .carousel_arrow_left,
@@ -107,4 +102,28 @@
 
 .pagination_dot-active {
  background-color: steelblue;
+}
+
+@media (max-width: 1400px) {}
+
+@media (max-width: 1000px) {
+ .carousel {
+  height: get_vw_premedium(300px);
+ }
+}
+
+@media (max-width: 700px) {
+ .carousel {
+  height: get_vw_aftersmall(207.5px);
+ }
+}
+
+@media (max-width: 480px) {
+ .carousel {
+  height: get_vw_small(130.5px);
+ }
+
+ .carousel_pagination {
+  display: none;
+ }
 }

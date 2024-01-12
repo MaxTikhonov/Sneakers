@@ -33,7 +33,7 @@ const Favorite = () => {
  return (
   <div className='content p-45' style={{ minHeight: '100vh' }}>
    <div className='d-flex flex-column'>
-    <div className='d-flex mb-35'>
+    <div className='d-flex mb-35 align-center'>
      <Link to="/" className='btnReturn'><button></button></Link>
      <h1>Мое избранное</h1>
     </div>

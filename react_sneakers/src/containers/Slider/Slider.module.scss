@@ -1,7 +1,38 @@
+@use '../../scss/mixins/mixins.scss' as *;
+
 .wrapper {
  width: 100%;
- padding-left: 45px;
- padding-right: 45px;
+ padding-left: get_vw_large(45px);
+ padding-right: get_vw_large(45px);
  display: flex;
  justify-content: center;
+}
+
+@media (max-width: 1400px) {
+ .wrapper {
+  padding-left: get_vw_medium(43px);
+  padding-right: get_vw_medium(43px);
+ }
+}
+
+@media (max-width: 1000px) {
+ .wrapper {
+  padding-left: get_vw_premedium(41px);
+  padding-right: get_vw_premedium(41px);
+ }
+}
+
+@media (max-width: 700px) {
+
+ .wrapper {
+  padding-left: get_vw_aftersmall(39px);
+  padding-right: get_vw_aftersmall(39px);
+ }
+}
+
+@media (max-width: 480px) {
+ .wrapper {
+  padding-left: get_vw_small(37px);
+  padding-right: get_vw_small(37px);
+ }
 }
