@@ -6,5 +6,6 @@ export const images = [
  { image: './img/slider/preview4crop.jpg' },
  { image: './img/slider/preview5crop.jpg' },
  { image: './img/slider/preview6crop.jpg' },
- { image: './img/slider/preview7crop.jpg' }
+ { image: './img/slider/preview7crop.jpg' },
+ { image: './img/slider/1.jpg' }
 ]

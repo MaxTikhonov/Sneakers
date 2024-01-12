@@ -1,4 +1,5 @@
 @import 'macro-css';
+@import './scss/mixins/mixins.scss';
 
 body {
   font-family: 'Inter', system-ui;
@@ -168,6 +169,15 @@ b {
   margin: 0;
 }
 
+
+p {
+  font-size: get_vw_large(20px);
+}
+
+h3 {
+  font-size: get_vw_large(24px);
+}
+
 .animated-enter {
   opacity: 0;
 }
@@ -252,5 +262,69 @@ b {
     button::after {
       background-color: #484848;
     }
+  }
+}
+
+@media (max-width: 1400px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: get_vw_medium(20px);
+    //95.83%
+  }
+
+
+  p {
+    font-size: get_vw_medium(19px);
+  }
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: get_vw_premedium(18px);
+    //87.5%
+  }
+
+
+  p {
+    font-size: get_vw_premedium(18px);
+  }
+}
+
+@media (max-width: 700px) {
+
+  h1 {
+    font-size: get_vw_aftersmall(29px);
+  }
+
+  h3 {
+    font-size: get_vw_aftersmall(19px);
+    //79.16%
+  }
+
+
+  p {
+    font-size: get_vw_aftersmall(17px);
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: get_vw_small(26.5px);
+  }
+
+  h3 {
+    font-size: get_vw_small(17px);
+    //70.83%
+  }
+
+  p {
+    font-size: get_vw_small(16px);
   }
 }

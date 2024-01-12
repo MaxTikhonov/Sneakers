@@ -27,7 +27,6 @@ const Carousel = ({ images }) => {
     {images.map((image, index) => {
      return <div key={index} className={index === current ? 'carouselCard carouselCardActive' : 'carouselCard'}>
       <img className="cardImage" src={image.image} alt="" />
-      <div className="cardOverlay"></div>
      </div>
     })}
     <div className="carousel_arrow_left" onClick={slideLeft}><span>&lsaquo;</span></div>

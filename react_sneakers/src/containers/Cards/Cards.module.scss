@@ -1,40 +1,13 @@
 @use '../../scss/mixins/mixins.scss' as *;
 
-.cartOpen {
- display: flex;
- align-items: center;
- margin-right: 20px;
+.cards {
+ padding-top: 30px;
+ padding-left: 45px;
+ padding-right: 45px;
 }
-
-
-.header {
- padding-top: get_vw_large(45px);
- padding-bottom: get_vw_large(30px);
- padding-left: get_vw_large(45px);
- padding-right: get_vw_large(45px);
-}
-
-.headerRight {
- display: flex;
- align-items: center;
-
- span {
-  cursor: pointer;
- }
-}
-
-.headerLeft {
- display: flex;
- align-items: center;
-
- img:hover {
-  cursor: pointer;
- }
-}
-
 
 @media (max-width: 1400px) {
- .header {
+ .cards {
   padding-top: get_vw_medium(43px);
   padding-bottom: get_vw_medium(28px);
   padding-left: get_vw_medium(43px);
@@ -43,7 +16,7 @@
 }
 
 @media (max-width: 1000px) {
- .header {
+ .cards {
   padding-top: get_vw_premedium(41px);
   padding-bottom: get_vw_premedium(26px);
   padding-left: get_vw_premedium(41px);
@@ -52,11 +25,8 @@
 }
 
 @media (max-width: 700px) {
- .headerRight {
-  display: none;
- }
 
- .header {
+ .cards {
   padding-top: get_vw_aftersmall(39px);
   padding-bottom: get_vw_aftersmall(24px);
   padding-left: get_vw_aftersmall(39px);
@@ -65,7 +35,7 @@
 }
 
 @media (max-width: 480px) {
- .header {
+ .cards {
   padding-top: get_vw_small(37px);
   padding-bottom: get_vw_small(22px);
   padding-left: get_vw_small(37px);

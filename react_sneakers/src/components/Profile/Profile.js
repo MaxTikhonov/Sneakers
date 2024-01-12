@@ -14,7 +14,7 @@ const Profile = () => {
  return (
   <div className='p-45'>
    <div className='d-flex flex-column'>
-    <div className='d-flex mb-35'>
+    <div className='d-flex mb-35 align-center'>
      <Link to="/" className='btnReturn'><button></button></Link>
      <h1>Мои покупки</h1>
     </div>
