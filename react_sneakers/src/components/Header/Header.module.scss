@@ -8,10 +8,10 @@
 
 
 .header {
- padding-top: get_vw_large(45px);
- padding-bottom: get_vw_large(30px);
- padding-left: get_vw_large(45px);
- padding-right: get_vw_large(45px);
+ padding-top: 45px;
+ padding-bottom: 30px;
+ padding-left: 45px;
+ padding-right: 45px;
 }
 
 .headerRight {
@@ -33,42 +33,15 @@
 }
 
 
-@media (max-width: 1400px) {
- .header {
-  padding-top: get_vw_medium(43px);
-  padding-bottom: get_vw_medium(28px);
-  padding-left: get_vw_medium(43px);
-  padding-right: get_vw_medium(43px);
- }
-}
+@media (max-width: 1400px) {}
 
-@media (max-width: 1000px) {
- .header {
-  padding-top: get_vw_premedium(41px);
-  padding-bottom: get_vw_premedium(26px);
-  padding-left: get_vw_premedium(41px);
-  padding-right: get_vw_premedium(41px);
- }
-}
+@media (max-width: 1000px) {}
 
 @media (max-width: 700px) {
  .headerRight {
   display: none;
  }
 
- .header {
-  padding-top: get_vw_aftersmall(39px);
-  padding-bottom: get_vw_aftersmall(24px);
-  padding-left: get_vw_aftersmall(39px);
-  padding-right: get_vw_aftersmall(39px);
- }
 }
 
-@media (max-width: 480px) {
- .header {
-  padding-top: get_vw_small(37px);
-  padding-bottom: get_vw_small(22px);
-  padding-left: get_vw_small(37px);
-  padding-right: get_vw_small(37px);
- }
-}
+@media (max-width: 480px) {}

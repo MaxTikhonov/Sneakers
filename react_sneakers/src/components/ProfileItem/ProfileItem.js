@@ -1,8 +1,6 @@
 import styles from './ProfileItem.module.scss';
 
 const ProfileItem = ({ card, amount }) => {
- console.log(card)
- console.log(amount)
  return (
   <>
    <div className={styles.card}>

@@ -29,8 +29,8 @@ const Carousel = ({ images }) => {
       <img className="cardImage" src={image.image} alt="" />
      </div>
     })}
-    <div className="carousel_arrow_left" onClick={slideLeft}><span>&lsaquo;</span></div>
-    <div className="carousel_arrow_right" onClick={slideRight}><span>&rsaquo;</span></div>
+    <div className="carousel_arrow_left" onClick={slideLeft}><img className='arrowLeft' src="./img/arrow-left.svg" alt="arrow" /></div>
+    <div className="carousel_arrow_right" onClick={slideRight}><img className='arrowRight' src="./img/arrow-right.svg" alt="arrow" /></div>
     <div className='carousel_pagination'>
      {images.map((_, index) => {
       return <div key={index} className={index === current ? 'pagination_dot pagination_dot-active' : 'pagination_dot'} onClick={() => setCurrent(index)}></div>
