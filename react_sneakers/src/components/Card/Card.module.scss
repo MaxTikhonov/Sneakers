@@ -1,7 +1,11 @@
+:root {
+ --w-card: clamp(10.5rem, calc(6rem + 5vw), 60rem);
+}
+
 .card {
  border: 1px solid #F8F8F8;
  border-radius: 40px;
- width: 210px;
+ width: var(--w-card);
  padding: 20px;
  margin-right: 20px;
  margin-bottom: 10px;

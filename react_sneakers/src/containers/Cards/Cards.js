@@ -56,7 +56,7 @@ const CardsContainer = ({ loading }) => {
             <input style={{ paddingRight: '35px' }} type="text" onChange={onSearch} value={inpValue} placeholder="Поиск..." />
           </div>
         </div>
-        <div className="d-flex flex-wrap justify-center">
+        <div className={styles.cardsWrapper}>
           {renderItems()}
         </div>
       </div>
