@@ -8,8 +8,6 @@ import { selectPurchasedItems } from '../../store/cartSlice';
 const Profile = () => {
  const purchasedItems = useSelector(selectPurchasedItems);
  const itemsObj = useSelector(selectItemsObj);
- console.log(purchasedItems)
- console.log(itemsObj)
 
  return (
   <div className='p-45'>

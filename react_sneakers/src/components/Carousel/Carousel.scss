@@ -1,10 +1,20 @@
 @use '../../scss/mixins/mixins.scss' as *;
 
+:root {
+ --arrows-width: clamp(.8rem, calc(1rem + 1vw), 5rem);
+}
+
+.arrowRight,
+.arrowLeft {
+ width: 20px;
+ height: 20px;
+}
+
 .carousel {
  // display: flex;
  height: 300px;
  width: 100%;
- max-width: 961px;
+ max-width: 959px;
 }
 
 .carouselWrapper {
@@ -43,39 +53,60 @@
 .carousel_arrow_left,
 .carousel_arrow_right {
  position: absolute;
- font-size: 40px;
  top: 50%;
  transform: translate(0, -50%);
  background-color: gainsboro;
- // color: #9DD458;
  display: flex;
  justify-content: center;
  align-items: center;
- width: 30px;
- height: 30px;
+ width: var(--arrows-width);
+ height: var(--arrows-width);
  border-radius: 50%;
- padding-bottom: 7px;
+ transition: background-color .15s ease-in-out;
+
+ &:hover {
+  background-color: rgb(199, 199, 199);
+  cursor: pointer;
+
+  img {
+   opacity: .9;
+  }
+ }
+
+ &:active {
+  background-color: rgb(170, 170, 170);
+
+  img {
+   opacity: 1;
+   transform: scale(1.2);
+  }
+ }
+
+ img {
+  opacity: .65;
+  cursor: pointer;
+  width: calc(var(--arrows-width) * 0.7);
+  height: calc(var(--arrows-width) * 0.7);
+  transform: scale(1);
+  transition: transform .15s ease-in-out;
+  transition: opacity .15s ease-in-out;
+ }
+
+ img:hover {
+  opacity: .9;
+ }
+
+ img:active {
+  transform: scale(1.2);
+ }
 }
 
 .carousel_arrow_left {
  left: 15px;
-
- span {
-  position: absolute;
-  left: 7px;
-  cursor: pointer;
- }
 }
 
 .carousel_arrow_right {
  right: 15px;
-
-
- span {
-  position: absolute;
-  right: 7px;
-  cursor: pointer;
- }
 }
 
 .carousel_pagination {
@@ -115,6 +146,14 @@
 @media (max-width: 700px) {
  .carousel {
   height: get_vw_aftersmall(207.5px);
+ }
+
+ .carousel_arrow_left {
+  left: 8px;
+ }
+
+ .carousel_arrow_right {
+  right: 8px;
  }
 }
 

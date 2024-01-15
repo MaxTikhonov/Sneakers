@@ -48,7 +48,7 @@ const CardsContainer = ({ loading }) => {
   return (
     <>
       <div className={styles.cards}>
-        <div className='d-flex justify-between mb-35 align-center'>
+        <div className={styles.cardsTitleSearch}>
           <h1 style={{ wordBreak: 'break-word' }} >{inpValue ? `Поиск по запросу: '${inpValue}'` : 'Все кроссовки'}</h1>
           <div className="search-block d-flex align-center">
             <img src="/img/search.svg" alt="Search" />

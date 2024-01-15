@@ -1,6 +1,15 @@
 @import 'macro-css';
 @import './scss/mixins/mixins.scss';
 
+:root {
+  --fs-4: clamp(1.00rem, calc(0.98rem + 0.13vw), 1.13rem);
+  --fs-3: clamp(1rem, calc(.7rem + .6vw), 2rem);
+  --fs-2: clamp(1.56rem, calc(1.48rem + 0.44vw), 2.00rem);
+  --fs-1: clamp(1.6rem, calc(1.5rem + 0.71vw), 2.5rem);
+  --main-width: clamp(17.5rem, calc(30rem + 40vw), 270rem);
+  --main-margin: clamp(.5rem, calc(.5rem + .9vw), 4rem);
+}
+
 body {
   font-family: 'Inter', system-ui;
   -webkit-font-smoothing: antialiased;
@@ -139,9 +148,9 @@ code {
   background: #FFFFFF;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
   border-radius: 20px;
-  width: 1080px;
+  width: var(--main-width);
+  margin: var(--main-margin) auto;
   max-width: 100%;
-  margin: 50px auto;
 }
 
 .overlay {
@@ -169,14 +178,14 @@ b {
   margin: 0;
 }
 
-
-p {
-  font-size: get_vw_large(20px);
+h1 {
+  font-size: var(--fs-1);
 }
 
 h3 {
-  font-size: get_vw_large(24px);
+  font-size: var(--fs-3);
 }
+
 
 .animated-enter {
   opacity: 0;
@@ -265,66 +274,10 @@ h3 {
   }
 }
 
-@media (max-width: 1400px) {
-  h1 {
-    font-size: 30px;
-  }
+@media (max-width: 1400px) {}
 
-  h3 {
-    font-size: get_vw_medium(20px);
-    //95.83%
-  }
+@media (max-width: 1000px) {}
 
+@media (max-width: 700px) {}
 
-  p {
-    font-size: get_vw_medium(19px);
-  }
-}
-
-@media (max-width: 1000px) {
-  h1 {
-    font-size: 28px;
-  }
-
-  h3 {
-    font-size: get_vw_premedium(18px);
-    //87.5%
-  }
-
-
-  p {
-    font-size: get_vw_premedium(18px);
-  }
-}
-
-@media (max-width: 700px) {
-
-  h1 {
-    font-size: get_vw_aftersmall(29px);
-  }
-
-  h3 {
-    font-size: get_vw_aftersmall(19px);
-    //79.16%
-  }
-
-
-  p {
-    font-size: get_vw_aftersmall(17px);
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: get_vw_small(26.5px);
-  }
-
-  h3 {
-    font-size: get_vw_small(17px);
-    //70.83%
-  }
-
-  p {
-    font-size: get_vw_small(16px);
-  }
-}
+@media (max-width: 480px) {}

@@ -12,14 +12,10 @@ export const cartSlice = createSlice({
  reducers: {
   addItem: (state, data) => {
    let articul = data.payload;
-   console.log(articul)
    if (!state.value[articul.id]) {
-
-    console.log('зашли')
     state.value[articul.id] = articul;
     state.valueArr = Object.values(state.value);
    }
-   console.log('не зашли')
    state.chosenAmount[articul.id] ? state.chosenAmount[articul.id]++ : state.chosenAmount[articul.id] = 1;
   },
   minusItem: (state, data) => {

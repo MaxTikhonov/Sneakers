@@ -4,6 +4,14 @@
  padding-top: 30px;
  padding-left: 45px;
  padding-right: 45px;
+ padding-bottom: 30px;
+}
+
+.cardsTitleSearch {
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 35px;
+ align-items: center;
 }
 
 @media (max-width: 1400px) {
@@ -40,5 +48,10 @@
   padding-bottom: get_vw_small(22px);
   padding-left: get_vw_small(37px);
   padding-right: get_vw_small(37px);
+ }
+
+ .cardsTitleSearch {
+  flex-direction: column;
+  align-items: start;
  }
 }
