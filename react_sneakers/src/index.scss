@@ -2,12 +2,15 @@
 @import './scss/mixins/mixins.scss';
 
 :root {
+  --fs: clamp(.1rem, calc(.5rem + 0.5vw), 500rem);
+  --fs-5: clamp(.9rem, calc(0.86rem + 0.1vw), 1.1rem);
   --fs-4: clamp(1.00rem, calc(0.98rem + 0.13vw), 1.13rem);
   --fs-3: clamp(1rem, calc(.7rem + .6vw), 2rem);
   --fs-2: clamp(1.56rem, calc(1.48rem + 0.44vw), 2.00rem);
-  --fs-1: clamp(1rem, calc(1.5rem + 0.51vw), 2.5rem);
+  --fs-1: clamp(1rem, calc(1.45rem + 0.51vw), 2.5rem);
   --main-width: clamp(17.5rem, calc(30rem + 40vw), 270rem);
   --main-margin: clamp(.5rem, calc(.5rem + .9vw), 4rem);
+  --header-icon: clamp(.1rem, calc(.8rem + .5vw), 20rem);
 }
 
 body {
@@ -24,6 +27,7 @@ body {
 
 * {
   font-family: "Inter", system-ui;
+  font-size: var(--fs);
 }
 
 a {
@@ -46,14 +50,9 @@ code {
     monospace;
 }
 
-.close-btn {
-  position: absolute;
-  top: 8px;
-  right: 7px;
-
-  &:hover {
-    cursor: pointer;
-  }
+.header-icon {
+  width: var(--header-icon);
+  height: var(--header-icon);
 }
 
 .greenBtn {
@@ -108,20 +107,6 @@ code {
     img.arrowLeft {
       transform: translateX(-5px);
     }
-  }
-}
-
-.search-block {
-  position: relative;
-  border: 1px solid #F8F8F8;
-  border-radius: 10px;
-  padding: 15px;
-
-  & input {
-    margin-left: 15px;
-    border: 0;
-    font-size: 16px;
-    width: 200px;
   }
 }
 
@@ -185,6 +170,10 @@ h1 {
 
 h3 {
   font-size: var(--fs-3);
+}
+
+p {
+  font-size: var(--fs-5);
 }
 
 
@@ -275,10 +264,26 @@ h3 {
   }
 }
 
-@media (max-width: 1400px) {}
+@media (max-width: 1400px) {
+  // * {
+  //   font-size: 14px;
+  // }
+}
 
-@media (max-width: 1000px) {}
+@media (max-width: 1000px) {
+  // * {
+  //   font-size: 12px;
+  // }
+}
 
-@media (max-width: 700px) {}
+@media (max-width: 700px) {
+  // * {
+  //   font-size: 10px;
+  // }
+}
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+  // * {
+  //   font-size: 8px;
+  // }
+}
