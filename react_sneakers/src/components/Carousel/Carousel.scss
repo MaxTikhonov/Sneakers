@@ -2,6 +2,8 @@
 
 :root {
  --arrows-width: clamp(.8rem, calc(1rem + 1vw), 5rem);
+ --carousel-w: clamp(15.5rem, calc(25rem + 34vw), 230rem);
+ --carousel-h: clamp(4.83rem, calc(7.8rem + 10.6vw), 71.8rem);
 }
 
 .arrowRight,
@@ -12,9 +14,8 @@
 
 .carousel {
  // display: flex;
- height: 300px;
- width: 100%;
- max-width: 961px;
+ height: var(--carousel-h);
+ width: var(--carousel-w);
 }
 
 .carouselWrapper {
@@ -137,16 +138,10 @@
 
 @media (max-width: 1400px) {}
 
-@media (max-width: 1000px) {
- .carousel {
-  height: get_vw_premedium(300px);
- }
-}
+@media (max-width: 1000px) {}
 
 @media (max-width: 700px) {
- .carousel {
-  height: get_vw_aftersmall(207.5px);
- }
+
 
  .carousel_arrow_left {
   left: 8px;
@@ -158,9 +153,6 @@
 }
 
 @media (max-width: 480px) {
- .carousel {
-  height: get_vw_small(130.5px);
- }
 
  .carousel_pagination {
   display: none;

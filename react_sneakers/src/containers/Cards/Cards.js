@@ -50,10 +50,10 @@ const CardsContainer = ({ loading }) => {
       <div className={styles.cards}>
         <div className={styles.cardsTitleSearch}>
           <h1 style={{ wordBreak: 'break-word' }} >{inpValue ? `Поиск по запросу: '${inpValue}'` : 'Все кроссовки'}</h1>
-          <div className="search-block d-flex align-center">
+          <div className={styles.searchBlock}>
             <img src="/img/search.svg" alt="Search" />
-            {inpValue && <img src="/img/cross.svg" alt="close" className='close-btn' onClick={onClose} />}
-            <input style={{ paddingRight: '35px' }} type="text" onChange={onSearch} value={inpValue} placeholder="Поиск..." />
+            <input type="text" onChange={onSearch} value={inpValue} placeholder="Поиск..." />
+            {inpValue && <img src="/img/cross.svg" alt="close" className={styles.closeBtn} onClick={onClose} />}
           </div>
         </div>
         <div className={styles.cardsWrapper}>

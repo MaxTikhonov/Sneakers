@@ -1,5 +1,10 @@
 @use '../../scss/mixins/mixins.scss' as *;
 
+:root {
+ --img40: clamp(.2rem, calc(2rem + 1vw), 50rem);
+}
+
+
 .cartOpen {
  display: flex;
  align-items: center;
@@ -26,6 +31,11 @@
 .headerLeft {
  display: flex;
  align-items: center;
+
+ img {
+  width: var(--img40);
+  height: var(--img40);
+ }
 
  img:hover {
   cursor: pointer;
@@ -74,5 +84,15 @@
   padding-bottom: get_vw_small(22px);
   padding-left: get_vw_small(37px);
   padding-right: get_vw_small(37px);
+ }
+}
+
+@media (min-width: 2530px) {
+
+ .header {
+  padding-top: 45px;
+  padding-bottom: 30px;
+  padding-left: 45px;
+  padding-right: 45px;
  }
 }
