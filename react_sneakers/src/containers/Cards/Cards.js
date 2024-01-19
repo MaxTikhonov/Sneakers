@@ -51,9 +51,9 @@ const CardsContainer = ({ loading }) => {
         <div className={styles.cardsTitleSearch}>
           <h1 style={{ wordBreak: 'break-word' }} >{inpValue ? `Поиск по запросу: '${inpValue}'` : 'Все кроссовки'}</h1>
           <div className={styles.searchBlock}>
-            <img src="/img/search.svg" alt="Search" />
+            <img className={styles.cardsSearch} src="/img/search.svg" alt="Search" />
             <input type="text" onChange={onSearch} value={inpValue} placeholder="Поиск..." />
-            {inpValue && <img src="/img/cross.svg" alt="close" className={styles.closeBtn} onClick={onClose} />}
+            {inpValue && <img src="/img/cross.svg" alt="close" className={`${styles.closeBtn} ${styles.cardsCross}`} onClick={onClose} />}
           </div>
         </div>
         <div className={styles.cardsWrapper}>

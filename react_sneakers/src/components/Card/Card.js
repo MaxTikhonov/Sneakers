@@ -36,7 +36,7 @@ const Card = ({ data, plus, favorite, isLoading, profile }) => {
 
 
  return (
-  <>{isLoading ? <div className={styles.card}><ContentLoader
+  <>{isLoading ? <div className={styles.cardContainer}><ContentLoader
    speed={1}
    width={400}
    height={286}
@@ -49,7 +49,7 @@ const Card = ({ data, plus, favorite, isLoading, profile }) => {
    <rect x="0" y="125" rx="3" ry="3" width="93" height="15" />
    <rect x="0" y="147" rx="8" ry="8" width="80" height="24" />
    <rect x="120" y="142" rx="8" ry="8" width="32" height="32" />
-  </ContentLoader></div> : <div className={styles.card}>
+  </ContentLoader></div> : <div className={styles.cardContainer}>
    <div className={styles.favorite}>
     <SwitchTransition>
      <CSSTransition
@@ -58,12 +58,12 @@ const Card = ({ data, plus, favorite, isLoading, profile }) => {
       classNames="cssTransBtn"
      >
       <div onClick={favorite}>
-       {data.favorite ? <img data-key={data.id} name="liked" src="/img/heart-liked.svg" alt="liked" onClick={onFavorite} /> : <img data-key={data.id} name="unliked" src="/img/heart-unliked.svg" alt="Unliked" onClick={onFavorite} />}
+       {data.favorite ? <img className={styles.cardIcon} data-key={data.id} name="liked" src="/img/heart-liked.svg" alt="liked" onClick={onFavorite} /> : <img className={styles.cardIcon} data-key={data.id} name="unliked" src="/img/heart-unliked.svg" alt="Unliked" onClick={onFavorite} />}
       </div>
      </CSSTransition>
     </SwitchTransition>
    </div>
-   <img width={133} height={112} src={`/img/sneakers/${data.image}`} alt="sneaker" />
+   <img className={styles.sneakerImg} src={`/img/sneakers/${data.image}`} alt="sneaker" />
    <h5>{data.name}</h5>
    <div className={styles.cardBottom}>
     <div className="d-flex flex-column">
@@ -77,7 +77,7 @@ const Card = ({ data, plus, favorite, isLoading, profile }) => {
       classNames="cssTransBtn"
      >
       <div onClick={plus}>
-       {logic.isAdded ? <img data-key={data.id} name="plus-checked" className={styles.btnPlus} width={32} height={32} src="/img/plus-checked.svg" alt="" onClick={onAdd} /> : <img data-key={data.id} name="plus" className={styles.btnPlus} width={32} height={32} src="/img/plus.svg" alt="" onClick={onAdd} />}
+       {logic.isAdded ? <img data-key={data.id} name="plus-checked" className={`${styles.btnPlus} ${styles.cardIcon}`} src="/img/plus-checked.svg" alt="" onClick={onAdd} /> : <img data-key={data.id} name="plus" className={`${styles.btnPlus} ${styles.cardIcon}`} src="/img/plus.svg" alt="" onClick={onAdd} />}
       </div>
      </CSSTransition>
     </SwitchTransition>

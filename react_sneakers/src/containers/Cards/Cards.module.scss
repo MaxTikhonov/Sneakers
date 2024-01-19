@@ -2,7 +2,7 @@
 
 :root {
  --in-ml: clamp(.2rem, calc(0.4rem + 0.6vw), 2rem);
- --in-w: clamp(1rem, calc(15rem + 1vw), 500rem);
+ --in-w: clamp(.2rem, calc(5rem + 13vw), 500rem);
 }
 
 .cards {
@@ -10,6 +10,8 @@
  padding-left: 45px;
  padding-right: 45px;
  padding-bottom: 30px;
+ container-name: cards;
+ container-type: inline-size;
 }
 
 .cardsWrapper {
@@ -40,6 +42,16 @@
   font-size: var(--fs-3);
   width: var(--in-w);
  }
+}
+
+.cardsSearch {
+ width: clamp(.8rem, 2cqi, 30rem);
+ height: clamp(.8rem, 2cqi, 30rem);
+}
+
+.cardsCross {
+ width: clamp(1.2rem, 2.5cqi, 30rem);
+ height: clamp(1.2rem, 2.5cqi, 30rem);
 }
 
 
@@ -112,10 +124,6 @@
 }
 
 @media (min-width: 2530px) {
-
- .cardsWrapper {
-  justify-content: start;
- }
 
  .searchBlock {
 
