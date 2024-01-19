@@ -1,11 +1,13 @@
-.card {
+.cardContainer {
  border: 1px solid #F8F8F8;
  border-radius: 40px;
- width: 200px;
+ width: clamp(12.5rem, calc(8rem + 5vw), 80rem);
  padding: 20px;
  margin-right: 20px;
  margin-bottom: 10px;
  transition: box-shadow .2s ease-in-out, transform .2s ease-in-out;
+ container-type: inline-size;
+ container-name: card;
 
  &:hover {
   transform: translateY(-5px);
@@ -23,8 +25,6 @@
 
  & h5 {
   font-weight: normal;
-  font-size: 14px;
-  line-height: 17px;
  }
 
  & span {
@@ -42,4 +42,14 @@
 
 .btnPlus {
  cursor: pointer;
+}
+
+.sneakerImg {
+ width: clamp(4rem, 70cqi, 50rem);
+ height: clamp(3.36rem, 62cqi, 42.1rem);
+}
+
+.cardIcon {
+ width: clamp(1.5rem, 20cqi, 13rem);
+ height: clamp(1.5rem, 20cqi, 13rem);
 }
