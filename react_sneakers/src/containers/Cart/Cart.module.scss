@@ -1,7 +1,7 @@
 .drawer {
  position: fixed;
  right: 0;
- width: 420px;
+ width: 400px;
  padding: 30px;
  background-color: rgb(255, 255, 255);
  height: 100%;
@@ -13,6 +13,9 @@
  opacity: .5;
  transition: opacity .15s ease-in-out;
  cursor: pointer;
+
+ width: clamp(1.7rem, calc(1rem + 1vw), 20rem);
+ height: clamp(1.7rem, calc(1rem + 1vw), 20rem);
 
  &:hover {
   opacity: 1;
@@ -28,7 +31,7 @@
  overflow-y: auto;
 
  &::-webkit-scrollbar {
-  width: 6px;
+  width: clamp(.4rem, .45cqi, 50rem);
  }
 
  &::-webkit-scrollbar-track {
@@ -49,6 +52,7 @@
  display: flex;
  flex-direction: column;
  align-items: center;
+ background-color: #FFFFFF;
 }
 
 .totalblock__info {
@@ -85,5 +89,17 @@
   text-align: center;
   text-indent: 12px;
   margin-bottom: 10px;
+ }
+}
+
+@media (min-width: 1620px) {
+ .drawer {
+  width: clamp(4rem, 26cqi, 50rem);
+ }
+}
+
+@media (max-width: 480px) {
+ .drawer {
+  width: 100%;
  }
 }

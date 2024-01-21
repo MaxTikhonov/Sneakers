@@ -18,6 +18,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const purchased = useSelector(selectPurchased);
 
+  const getScrollbarWidth = () => {
+    return window.innerWidth - document.documentElement.clientWidth;
+  }
+
+
   async function fetchData() {
     setIsLoading(true);
     await fetch('https://656afe72dac3630cf7278b17.mockapi.io/items')
@@ -37,14 +42,17 @@ function App() {
   }, [purchased])
 
   const onClickCart = (event) => {
+    let scrBarWidth = getScrollbarWidth();
     event.preventDefault();
     if (event.currentTarget.classList.value.indexOf('cartOpen') > -1) {
-      document.body.classList.add('hiddenBody')
+      document.body.classList.add('hiddenBody');
+      document.body.style.marginRight = `${scrBarWidth}px`;
       setOpenCart(true);
     }
     if (event.currentTarget.classList.value.indexOf('cartItem__cross') > -1) {
-      document.body.classList.remove('hiddenBody')
+      document.body.classList.remove('hiddenBody');
       setOpenCart(false);
+      document.body.style.marginRight = `0px`;
       if (purchased) {
         dispatch(switchPurchased());
       }

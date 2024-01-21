@@ -22,8 +22,8 @@ const Profile = () => {
        return item;
       }
       else { return null; }
-     }).map((item) => {
-      return <ProfileItem card={item} amount={purchasedItems[item.id]} />
+     }).map((item, index) => {
+      return <ProfileItem key={index} card={item} amount={purchasedItems[item.id]} />
      })}
     </div>
    </div>
