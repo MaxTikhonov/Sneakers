@@ -75,7 +75,7 @@ const Cart = (props) => {
   <CSSTransition in={open} classNames='animated' timeout={300} unmountOnExit>
    <div className='overlay'>
     <div className={styles.drawer}>
-     <h2 className='d-flex justify-between mb-40'>Корзина <img className={styles.cartItem__cross} width={32} height={32} src="/img/cross.svg" alt="" onClick={props.closeCart} /></h2>
+     <h2 className='d-flex justify-between align-center mb-40'>Корзина <img className={styles.cartItem__cross} width={32} height={32} src="/img/cross.svg" alt="" onClick={props.closeCart} /></h2>
      {items.length > 0 ? <div style={{ height: '100%' }}>
       <div className={styles.items}>
        <CartItem data={items} remove={remove} minus={minus} add={add} amount={chosenAmount} />

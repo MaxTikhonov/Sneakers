@@ -22,7 +22,7 @@ const CartItem = ({ data, remove, minus, add, amount }) => {
      </div>
     </div>
     <div className='d-flex flex-column align-center'>
-     <img className={styles.cartItem__cross} name={item.id} width={40} height={40} src="/img/cross.svg" alt="" onClick={remove} />
+     <img className={styles.cartItem__cross} name={item.id} src="/img/cross.svg" alt="" onClick={remove} />
      <div className={styles.wrapperBtnMinPlus}>
       <button className={styles.btnMinus} name={item.id} onClick={minus}></button>
       <button className={styles.btnPlus} name={item.id} onClick={add}></button>
