@@ -1,13 +1,17 @@
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import useWindowSize from '../../hooks/useWindowSize';
+import { useEffect, useState } from 'react';
 
-const Header = ({ openCart }) => {
+const Header = ({ openCart, open }) => {
+ const [showBurger, setShowBurger] = useState(false);
+ const [width] = useWindowSize();
 
- const [width, height] = useWindowSize();
-
+ useEffect(() => {
+  setShowBurger(true)
+ }, [open])
  const switchBurger = () => {
-  if (width > 700) {
+  if (width > 700 && showBurger) {
    return <ul className={styles.headerRight}>
     <li className={styles.cartOpen} onClick={openCart} >
      <img src='/img/cart.svg' alt='' className='header-icon mr-10' />
@@ -22,7 +26,7 @@ const Header = ({ openCart }) => {
   }
 
   else {
-   return <div>
+   return <div className={styles.menu__wrapper}>
     <input id={styles.menu__toggle} type="checkbox" />
     <label className={styles.menu__btn} htmlFor="menu__toggle">
      <span></span>
@@ -44,7 +48,7 @@ const Header = ({ openCart }) => {
 
  return (
   <header className={styles.header}>
-   <div className="d-flex justify-between">
+   <div className={styles.header__wrapper}>
     <div className={styles.headerLeft}>
      <img src='/img/logo.svg' alt='' className="mr-15" />
      <div className="header-info">

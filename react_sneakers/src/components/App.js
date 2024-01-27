@@ -43,16 +43,17 @@ function App() {
 
   const onClickCart = (event) => {
     let scrBarWidth = getScrollbarWidth();
+    console.log(scrBarWidth)
     event.preventDefault();
     if (event.currentTarget.classList.value.indexOf('cartOpen') > -1) {
       document.body.classList.add('hiddenBody');
-      document.body.style.marginRight = `${scrBarWidth}px`;
+      document.body.style.marginRight = `${scrBarWidth + 8}px`;
       setOpenCart(true);
     }
     if (event.currentTarget.classList.value.indexOf('cartItem__cross') > -1) {
       document.body.classList.remove('hiddenBody');
       setOpenCart(false);
-      document.body.style.marginRight = `0px`;
+      document.body.style.marginRight = `8px`;
       if (purchased) {
         dispatch(switchPurchased());
       }
@@ -64,7 +65,7 @@ function App() {
     <div className="wrapper clear">
       <Router>
         <Routes>
-          <Route path='/' element={<> <Cart closeCart={onClickCart} open={openCart} /> <Header openCart={onClickCart} /> <Slider />  <Cards loading={isLoading} /> </>} />
+          <Route path='/' element={<> <Cart closeCart={onClickCart} open={openCart} /> <Header openCart={onClickCart} open={openCart} /> <Slider />  <Cards loading={isLoading} /> </>} />
           <Route path='/favorite' element={<><Cart closeCart={onClickCart} open={openCart} />
             <Header openCart={onClickCart} /> <Favorite /></>} />
           <Route path='/profile' element={<><Cart closeCart={onClickCart} open={openCart} />
