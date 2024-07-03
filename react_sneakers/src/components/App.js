@@ -42,18 +42,19 @@ function App() {
   }, [purchased])
 
   const onClickCart = (event) => {
-    let scrBarWidth = getScrollbarWidth();
-    console.log(scrBarWidth)
     event.preventDefault();
+    let scrBarWidth = getScrollbarWidth();
     if (event.currentTarget.classList.value.indexOf('cartOpen') > -1) {
       document.body.classList.add('hiddenBody');
       document.body.style.marginRight = `${scrBarWidth + 8}px`;
       setOpenCart(true);
     }
     if (event.currentTarget.classList.value.indexOf('cartItem__cross') > -1) {
-      document.body.classList.remove('hiddenBody');
       setOpenCart(false);
-      document.body.style.marginRight = `8px`;
+      setTimeout(() => {
+        document.body.classList.remove('hiddenBody');
+        document.body.style.marginRight = `8px`;
+      }, "300");
       if (purchased) {
         dispatch(switchPurchased());
       }
